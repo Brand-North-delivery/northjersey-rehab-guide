@@ -57,13 +57,45 @@ const pages = [];
 
 /* ---------------------------------------------------------------- chrome */
 
-const head = (title, desc, up) => `<!doctype html>
+const featuredMap = JSON.parse(readFileSync(join(ROOT, "assets/featured/manifest.json"), "utf8"));
+const SITE = "https://brand-north-delivery.github.io/northjersey-rehab-guide/";
+
+/* SOP 9 — <picture>/<source> for the mobile breakpoint.
+   SOP: alt = the text on the image, title = the same. */
+const featured = (slug, up = "") => {
+  const f = featuredMap[slug];
+  if (!f) return "";
+  return `<figure class="featured">
+      <picture>
+        <source media="(max-width: 820px)" srcset="${up}${f.mobile}" width="820" height="560">
+        <img src="${up}${f.desktop}" alt="${f.alt}" title="${f.title}" width="1640" height="840" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>`;
+};
+
+/* SOP 10 — the same asset serves the OG and Twitter card, full width. */
+const ogTags = (slug, title, desc) => {
+  const f = featuredMap[slug];
+  const img = f ? SITE + f.desktop : "";
+  return `<meta property="og:type" content="article">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">${f ? `
+<meta property="og:image" content="${img}">
+<meta property="og:image:width" content="1640">
+<meta property="og:image:height" content="840">
+<meta property="og:image:alt" content="${f.alt}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${img}">` : ""}`;
+};
+
+const head = (title, desc, up, slug = "") => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${desc}">
+${ogTags(slug, title, desc)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
@@ -151,7 +183,8 @@ const reviewPage = (c) => {
   return `${head(
     `${shortName(c)} Review — ${c.city} | Northern NJ Rehab Guide`,
     `An editorial review of ${plain(c.name)} in ${c.city}: levels of care, licensing, accreditation, insurance, who it fits, and what to ask before you call.`,
-    "../"
+    "../",
+    c.slug
   )}
 <main id="main">
 ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }])}
@@ -170,6 +203,8 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }
     </div>
   </div>
 </section>
+
+${featured(c.slug, "../")}
 
 <section class="band">
   <div class="wrap narrow">
@@ -549,7 +584,8 @@ ${foot("../")}`;
 const comparePage = () => `${head(
   `All Six Northern New Jersey Rehabs, Side by Side`,
   `Every center in this guide compared on one screen: levels of care, licensing, accreditation, insurance and all four editorial dimensions.`,
-  "../"
+  "../",
+  "compare"
 )}
 <main id="main">
 ${crumbs("../", [{ label: "Side by side" }])}
@@ -561,6 +597,7 @@ ${crumbs("../", [{ label: "Side by side" }])}
     <p class="lede-dark">Every center on the same rows, so the comparison is not a matter of remembering what the last marketing page said.</p>
   </div>
 </section>
+${featured("compare", "../")}
 
 <section class="band">
   <div class="wrap">
@@ -588,7 +625,8 @@ ${foot("../")}`;
 const methodologyPage = () => `${head(
   `How We Review Treatment Centers`,
   `The scoring method behind this guide: four equally weighted dimensions applied to publicly available information, and what the scores deliberately do not measure.`,
-  "../"
+  "../",
+  "how-we-review"
 )}
 <main id="main">
 ${crumbs("../", [{ label: "How we review" }])}
@@ -600,6 +638,7 @@ ${crumbs("../", [{ label: "How we review" }])}
     <p class="lede-dark">Every center is assessed on the same four dimensions, weighted equally at 25 percent each, using information the center itself publishes.</p>
   </div>
 </section>
+${featured("how-we-review", "../")}
 
 <section class="band">
   <div class="wrap narrow">

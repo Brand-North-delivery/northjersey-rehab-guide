@@ -356,3 +356,17 @@ h3.sub:first-of-type{margin-top:0}
   font-family:var(--serif);font-size:1.1rem;line-height:1.45;color:var(--ink)
 }
 .band.flagged .claim-flag{background:#fff;border-color:#efd9d1}
+
+/* ---------- featured image (semantic image SOP) ---------- */
+.featured{margin:0;width:100%;background:var(--ink)}
+.featured img{width:100%;height:auto;display:block;aspect-ratio:1640/840;object-fit:cover}
+@media (max-width:820px){ .featured img{aspect-ratio:820/560} }
+
+/* hero backed by the purchased photography, gradient retained for legibility */
+.hero--photo{
+  background:
+    linear-gradient(165deg, rgba(27,43,36,.90) 0%, rgba(34,57,47,.72) 45%, rgba(44,74,60,.68) 100%),
+    url("assets/featured/treatment-northern-new-jersey-1640x840.jpg") center 62% / cover no-repeat,
+    linear-gradient(160deg,#1b2b24 0%,#22392f 45%,#2c4a3c 100%);
+}
+.hero--photo::after{opacity:.28}

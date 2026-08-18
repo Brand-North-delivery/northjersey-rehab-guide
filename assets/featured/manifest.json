@@ -1,0 +1,74 @@
+{
+  "index": {
+    "desktop": "assets/featured/treatment-northern-new-jersey-1640x840.jpg",
+    "mobile": "assets/featured/treatment-northern-new-jersey-820x560.jpg",
+    "alt": "Treatment in Northern New Jersey \u2014 Six centers, compared",
+    "title": "Treatment in Northern New Jersey \u2014 Six centers, compared",
+    "line1": "Treatment in Northern New Jersey",
+    "line2": "Six centers, compared"
+  },
+  "valley-spring-recovery-center": {
+    "desktop": "assets/featured/valley-spring-recovery-center-1640x840.jpg",
+    "mobile": "assets/featured/valley-spring-recovery-center-820x560.jpg",
+    "alt": "Valley Spring Recovery Center \u2014 Norwood, Bergen County",
+    "title": "Valley Spring Recovery Center \u2014 Norwood, Bergen County",
+    "line1": "Valley Spring Recovery Center",
+    "line2": "Norwood, Bergen County"
+  },
+  "bluecrest-recovery-center": {
+    "desktop": "assets/featured/bluecrest-recovery-center-1640x840.jpg",
+    "mobile": "assets/featured/bluecrest-recovery-center-820x560.jpg",
+    "alt": "BlueCrest Recovery Center \u2014 Woodland Park, Passaic County",
+    "title": "BlueCrest Recovery Center \u2014 Woodland Park, Passaic County",
+    "line1": "BlueCrest Recovery Center",
+    "line2": "Woodland Park, Passaic County"
+  },
+  "ikon-recovery-centers": {
+    "desktop": "assets/featured/ikon-recovery-centers-1640x840.jpg",
+    "mobile": "assets/featured/ikon-recovery-centers-820x560.jpg",
+    "alt": "IKON Recovery Centers \u2014 Saddle Brook, Bergen County",
+    "title": "IKON Recovery Centers \u2014 Saddle Brook, Bergen County",
+    "line1": "IKON Recovery Centers",
+    "line2": "Saddle Brook, Bergen County"
+  },
+  "choicepoint": {
+    "desktop": "assets/featured/choicepoint-1640x840.jpg",
+    "mobile": "assets/featured/choicepoint-820x560.jpg",
+    "alt": "ChoicePoint \u2014 Fair Lawn, Bergen County",
+    "title": "ChoicePoint \u2014 Fair Lawn, Bergen County",
+    "line1": "ChoicePoint",
+    "line2": "Fair Lawn, Bergen County"
+  },
+  "north-jersey-recovery-center": {
+    "desktop": "assets/featured/north-jersey-recovery-center-1640x840.jpg",
+    "mobile": "assets/featured/north-jersey-recovery-center-820x560.jpg",
+    "alt": "North Jersey Recovery Center \u2014 Fair Lawn, Bergen County",
+    "title": "North Jersey Recovery Center \u2014 Fair Lawn, Bergen County",
+    "line1": "North Jersey Recovery Center",
+    "line2": "Fair Lawn, Bergen County"
+  },
+  "boca-recovery-center-englewood": {
+    "desktop": "assets/featured/boca-recovery-center-englewood-1640x840.jpg",
+    "mobile": "assets/featured/boca-recovery-center-englewood-820x560.jpg",
+    "alt": "Boca Recovery Center Englewood \u2014 Englewood, Bergen County",
+    "title": "Boca Recovery Center Englewood \u2014 Englewood, Bergen County",
+    "line1": "Boca Recovery Center Englewood",
+    "line2": "Englewood, Bergen County"
+  },
+  "compare": {
+    "desktop": "assets/featured/all-six-side-by-side-1640x840.jpg",
+    "mobile": "assets/featured/all-six-side-by-side-820x560.jpg",
+    "alt": "All Six, Side by Side \u2014 Licensing, levels, coverage",
+    "title": "All Six, Side by Side \u2014 Licensing, levels, coverage",
+    "line1": "All Six, Side by Side",
+    "line2": "Licensing, levels, coverage"
+  },
+  "how-we-review": {
+    "desktop": "assets/featured/how-we-review-1640x840.jpg",
+    "mobile": "assets/featured/how-we-review-820x560.jpg",
+    "alt": "How We Review \u2014 Four dimensions, equally weighted",
+    "title": "How We Review \u2014 Four dimensions, equally weighted",
+    "line1": "How We Review",
+    "line2": "Four dimensions, equally weighted"
+  }
+}
