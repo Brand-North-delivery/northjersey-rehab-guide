@@ -30,7 +30,7 @@
       <a href="#list">Compare</a>
       <a href="#how-we-review">How we review</a>
       <a href="#shortlist-tool">Where to start</a>
-      <a href="#faq">Plain answers</a>
+      <a href="#faq">Care compass</a>
     </nav>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -112,7 +112,7 @@
             <div class="score" aria-label="Editorial score 3.2 out of 5"><b>3.2</b><span>/5</span></div>
           </div>
           <div class="thumb"><img src="assets/centers/valley-spring-recovery-center.jpg" alt="Homepage of Valley Spring Recovery Center, captured August 2026" loading="lazy" width="1000" height="625" onerror="this.parentNode.classList.add('is-fallback');this.remove()"><span class="thumb-fallback" aria-hidden="true">VS</span></div>
-          <p class="summary">A dual-licensed substance use and mental health center with published program schedules, and an evening intensive outpatient track built around people who are still working.</p>
+          <p class="summary">Valley Spring Recovery Center holds dual New Jersey licenses for substance use and mental health treatment, publishes its program schedules, and runs an evening intensive outpatient track built around people who are still working.</p>
           <dl class="spec">
             <div><dt>Levels of care</dt><dd>Partial care, IOP, evening IOP, outpatient, telehealth</dd></div>
             <div><dt>Licensing</dt><dd>NJ SUD #200887 and NJ mental health #70420104</dd></div>
@@ -344,15 +344,554 @@
 </section>
 
 <section class="band alt" id="faq">
-  <div class="wrap narrow">
-    <h2 class="section-title">Plain answers</h2>
-    <div class="faq">
-      <details><summary>Do I need detox before outpatient treatment?</summary><p>Sometimes. Alcohol and benzodiazepine withdrawal can be medically dangerous and may require supervised detox first. Opioid withdrawal is rarely life-threatening but is often the reason people stop trying. Ask each center to assess this on the phone before you choose a level of care.</p></details>
-      <details><summary>What is the difference between partial care and IOP?</summary><p>Partial care is a full-day program, typically five days a week. Intensive outpatient is a few hours a day, several days a week, and is designed so people can keep working or caring for family. Outpatient is lighter still. The right level depends on medical risk, home stability and how much structure is needed.</p></details>
-      <details><summary>Can I get treatment without a substance use diagnosis?</summary><p>At most centers here, no&mdash;their license covers substance use. New Jersey licenses mental health separately, and a center holding a standalone mental health license can admit someone whose primary problem is anxiety, depression, PTSD or bipolar disorder with no substance use involved. Ask which license the center holds.</p></details>
-      <details><summary>Is family involved in treatment?</summary><p>Often, yes. Ask whether family therapy is live or online, who facilitates it, when it begins and how the center handles confidentiality and consent.</p></details>
-      <details><summary>How much does it cost?</summary><p>Most centers here bill insurance and will verify benefits before intake. Cost varies enormously by level of care and plan. Ask for the expected out-of-pocket figure in writing, and ask whether the center is in network or billing as out of network.</p></details>
-      <details><summary>What if someone refuses treatment?</summary><p>Pushing harder usually backfires. Prepare the practical details in advance&mdash;insurance, schedule, transport&mdash;so that when the person is willing, nothing stands in the way for the next few hours. Several centers offer family consultations for exactly this.</p></details>
+  <div class="wrap">
+    <div class="compass-tabs" role="tablist" aria-label="Care compass categories">
+      <!-- compass:tabs -->
+        <button class="ctab is-on" role="tab" id="ctab-alcohol"
+          aria-selected="true" aria-controls="cpanel-alcohol" data-panel="alcohol">
+          <span class="ctab-n">01</span><span class="ctab-l">Alcohol rehab</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-drug"
+          aria-selected="false" aria-controls="cpanel-drug" data-panel="drug">
+          <span class="ctab-n">02</span><span class="ctab-l">Drug rehab</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-detox"
+          aria-selected="false" aria-controls="cpanel-detox" data-panel="detox">
+          <span class="ctab-n">03</span><span class="ctab-l">Medical detox</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-dual"
+          aria-selected="false" aria-controls="cpanel-dual" data-panel="dual">
+          <span class="ctab-n">04</span><span class="ctab-l">Dual diagnosis</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-trauma"
+          aria-selected="false" aria-controls="cpanel-trauma" data-panel="trauma">
+          <span class="ctab-n">05</span><span class="ctab-l">Trauma & PTSD</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-mentalhealth"
+          aria-selected="false" aria-controls="cpanel-mentalhealth" data-panel="mentalhealth">
+          <span class="ctab-n">06</span><span class="ctab-l">Mental health only</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-insurance"
+          aria-selected="false" aria-controls="cpanel-insurance" data-panel="insurance">
+          <span class="ctab-n">07</span><span class="ctab-l">Insurance & cost</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-working"
+          aria-selected="false" aria-controls="cpanel-working" data-panel="working">
+          <span class="ctab-n">08</span><span class="ctab-l">Working professionals</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-family"
+          aria-selected="false" aria-controls="cpanel-family" data-panel="family">
+          <span class="ctab-n">09</span><span class="ctab-l">Family support</span>
+        </button>
+        <button class="ctab" role="tab" id="ctab-aftercare"
+          aria-selected="false" aria-controls="cpanel-aftercare" data-panel="aftercare">
+          <span class="ctab-n">10</span><span class="ctab-l">Aftercare & alumni</span>
+        </button>
+      <!-- /compass:tabs -->
+    </div>
+    <div class="compass-body">
+      <!-- compass:panels -->
+      <div class="cpanel is-on" id="cpanel-alcohol" role="tabpanel"
+        aria-labelledby="ctab-alcohol">
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Alcohol rehab</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For anyone whose primary substance is alcohol. Alcohol withdrawal is one of the few that can kill you, so the first questions here are medical, not therapeutic. A polished website cannot tell you whether a program is clinically right for you. These questions can.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Will you assess my withdrawal risk before I choose a level of care?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>This should happen on the first phone call, not at intake. Alcohol withdrawal can cause seizures and delirium tremens. A center that books you into outpatient without asking how much you drink daily and when you last drank is skipping the step that matters most.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Do you use a withdrawal scale, and which one?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>CIWA-Ar is the standard. Ask who administers it and how often. If nobody can name an instrument, withdrawal is being eyeballed.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">If I need medical detox, do you provide it here or send me elsewhere?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Of the six centers in this guide, BlueCrest and Boca Englewood list detox at the location. Others arrange it through partners, which means clinical responsibility changes hands during the riskiest phase.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">Which medications do you use for alcohol use disorder?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Naltrexone, acamprosate and disulfiram are the three approved options. A center that offers none of them is running a talk-therapy-only program, which is a legitimate choice but you should know it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Who prescribes and monitors those medications?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the role and the credential, not a name. A psychiatric nurse practitioner or physician should be involved, and you should know how often you will actually see them.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">How many hours a week is the program, and on which days?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Partial care and intensive outpatient differ by a factor of two or three. Program names are marketing; hours are the product.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">What happens if I drink during treatment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>The answer reveals the program's philosophy. Immediate discharge and no consequence at all are both warning signs. You want a stated, graduated clinical response.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">Is my liver function being checked, and by whom?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Long-term heavy drinking damages the liver silently. Ask whether bloodwork is part of intake and who reviews it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">What does aftercare look like at three months, not three weeks?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Most relapse happens after the program ends. Ask what specifically exists at 90 days and whether it costs extra.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">Can I keep working while I attend?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>If you need to, say so before you are assessed. Evening intensive outpatient exists at Valley Spring and North Jersey Recovery Center; most programs run during business hours.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-drug" role="tabpanel"
+        aria-labelledby="ctab-drug" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Drug rehab</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For substances other than alcohol, where the withdrawal risk profile and the medication options differ sharply by drug. The right questions depend on what you are actually using, so start by being specific with the center rather than saying "drugs."</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Which substances do you actually treat most often?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Every center says it treats everything. Ask what their caseload is really made of. A program that mostly sees opioid clients runs differently from one that mostly sees stimulant clients.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Is withdrawal from my substance medically dangerous?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Benzodiazepine withdrawal can be fatal and requires a supervised taper. Opioid withdrawal is rarely fatal but is the reason most people stop trying. Stimulant withdrawal is mostly psychological. The answer changes the level of care you need.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Do you offer medication-assisted treatment, and which medications?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>ChoicePoint publishes buprenorphine, methadone and naltrexone by name. Specificity is a good sign; "we offer MAT" without naming anything is not.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">If I am on methadone or buprenorphine, can I continue it here?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Some programs require tapering off before admission. That is a legitimate model and also a dealbreaker for many people. Ask before you are admitted, not after.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Do you drug test, how often, and what happens with a positive result?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the written policy. Testing without a stated clinical response is surveillance rather than treatment.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">Do you prescribe or provide naloxone to clients and families?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>For anyone with opioid involvement this should be automatic, and family members should be trained to use it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">What is your policy if I leave against medical advice?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether you can return, and how quickly. A program that treats leaving as permanent disqualification is not built around how relapse actually works.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">How do you handle a client who is still using at intake?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>"You have to be clean to start" is a real answer, and it means you need somewhere else first. Better to know now.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Who on staff has addiction-specific credentials?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for LCADC, CADC or an equivalent. A licensed therapist without addiction training is not the same thing.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">What is the plan if this level of care turns out to be wrong in week one?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Good programs reassess early. Ask what the step-up path is and whether it means changing providers.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-detox" role="tabpanel"
+        aria-labelledby="ctab-detox" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Medical detox</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For anyone who may face withdrawal or needs medication and overnight observation. This is the single point where the difference between on-site and by-referral matters most, because it is where clinical responsibility can quietly change hands.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Who performs the pre-admission assessment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>A nurse or physician should be involved before you are told which level of care you need. If the first person assessing you works in admissions rather than clinically, you are being sold, not assessed.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Is medical cover available overnight?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask specifically whether a clinician is physically present overnight or on call from home. These are different products at the same price.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Which withdrawals can be managed on site?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Alcohol and benzodiazepines carry the highest medical risk. A program should be able to say plainly which it will and will not manage in house.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">Where would I go in an emergency?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the receiving hospital by name and how far it is. Every center should have an immediate answer.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Are detox costs included, or billed separately?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>If detox happens at a partner facility, it may be billed by that facility, possibly out of network. This is one of the most common sources of surprise bills in the entire industry.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">If detox is by referral, who holds clinical responsibility during it?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>IKON states plainly that detox is not provided in house. That transparency is worth something, but you still need to know who owns your care during the handoff.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">How long does detox typically last for my substance?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for a range and what determines the endpoint. "It depends" without any detail means nobody has thought about your case yet.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">What happens immediately after detox ends?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>The days after detox carry the highest overdose risk, because tolerance has dropped. A plan that ends at discharge is not a plan.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Will my regular medications be continued during detox?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Psychiatric medications in particular. Ask who reviews your current prescriptions and when.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">Is the detox facility licensed and accredited separately?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>If it is a different organization, its credentials are a separate question from the ones on the website you are reading.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-dual" role="tabpanel"
+        aria-labelledby="ctab-dual" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Dual diagnosis</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For people managing a substance use disorder and a mental health condition at the same time. The critical question is not whether a center says it treats both, but whether it holds the license and the staff to actually do so.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Do you hold a separate mental health license, or only a substance use license?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>New Jersey licenses these separately. Valley Spring publishes both numbers, #200887 and #70420104. A center with only a substance use license is treating your mental health condition as a secondary concern by regulatory definition.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Can I be admitted if my primary problem is mental health, with no substance use?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Only a center with a standalone mental health license can say yes. This is the sharpest dividing line in this market and most competitors cannot cross it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Which psychiatric conditions do you actually treat?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the list. If eating disorders or schizophrenia spectrum disorders appear on a generic list but nobody can describe the program, they are marketing rather than clinical claims.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">Who prescribes psychiatric medication, and how often will I see them?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>A prescriber you see once at intake and never again is not medication management.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Are the two conditions treated together or in sequence?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Integrated treatment is the standard of care. Sequential treatment, where you are told to get sober first and address the trauma later, is an older model and you should know which you are buying.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">Do you use validated symptom measures, and which?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>PHQ-9 for depression, GAD-7 for anxiety, PCL-5 for PTSD. Named instruments mean symptoms are being tracked rather than asked about.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">What happens if my psychiatric symptoms worsen during treatment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the escalation path and whether it requires leaving the program.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">Is psychiatric care included in the program cost or billed separately?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Frequently separate, and frequently a different network status.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Do you coordinate with my existing psychiatrist or therapist?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether they will actually call, and who signs the release.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">What is your experience with my specific diagnosis?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Bipolar disorder, borderline personality disorder and psychotic disorders each need different competence. Generic dual diagnosis language covers all three without committing to any.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-trauma" role="tabpanel"
+        aria-labelledby="ctab-trauma" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Trauma & PTSD</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For people whose substance use sits on top of trauma, and for those seeking trauma treatment in its own right. Trauma-informed is a phrase almost every center uses; these questions distinguish the ones who have built something from the ones who have written a sentence.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">What does trauma-informed mean in your program specifically?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for a concrete practice, not a philosophy. If the answer is entirely about atmosphere and respect, no trauma treatment is happening.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Which trauma modalities do you deliver, and who is trained in them?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>EMDR, cognitive processing therapy and prolonged exposure are the evidence-based options. Ask how many staff are certified, not whether the center offers it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Do you screen for trauma at intake, and with what?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>The PCL-5 is standard for PTSD. Ask whether screening happens routinely or only when someone volunteers it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">Is trauma work done in individual sessions, groups, or both?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Group-only trauma processing is a real risk for re-traumatization. Ask what happens individually.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">When in treatment does trauma work begin?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Beginning trauma processing during acute withdrawal is generally inadvisable. A center should be able to explain its sequencing.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">What happens if trauma work destabilizes me?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask about the stabilization plan and who is available between sessions.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">Do you offer a first responder or veteran track?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Occupational trauma has specific features. Valley Spring and IKON both publish first responder programming; ask what it actually contains beyond the label.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">Can I decline trauma work and still be in the program?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Yes should be the answer. Mandatory disclosure is a warning sign.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">How do you handle trauma disclosures in mixed groups?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the group agreement and how it is enforced.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">Is there aftercare specifically for trauma, or does it end with the program?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Trauma work rarely completes inside a 30 or 60 day episode. Ask what continues.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-mentalhealth" role="tabpanel"
+        aria-labelledby="ctab-mentalhealth" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Mental health only</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For people who do not have a substance use problem and need structured outpatient psychiatric care. This is the hardest category to shop for in New Jersey, because most facilities marketing to you are licensed primarily for addiction.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Do you admit clients with no substance use diagnosis at all?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>This is the first question and it eliminates most options immediately. It requires a standalone mental health license.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">What is your mental health license number and its expiration?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the number, then check it. Valley Spring publishes #70420104 on its site, which is unusual and easy to verify.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Is the mental health track physically and clinically separate from the addiction track?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether groups are mixed. Sitting in a relapse-prevention group when you have never used substances is a common and demoralizing experience.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">What levels of care do you offer for mental health specifically?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Some centers offer a full ladder for addiction and only outpatient for mental health. The website often does not distinguish.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Which conditions are within your scope, and which are not?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>A center that says it treats everything is telling you it has not thought about scope. Eating disorders in particular usually require medical monitoring that outpatient licensure does not cover.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">Will I see a psychiatric prescriber, and how often?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the actual cadence, weekly or monthly, and whether it is included.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">Is my treatment billed to mental health benefits or substance use benefits?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>These are separate buckets on most plans. It matters if one is exhausted or excluded.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">What is the plan if I need a higher level of care?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>None of the centers in this guide offer psychiatric inpatient care. Ask where they refer and whether they have a relationship there.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Do you provide crisis coverage outside program hours?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask what happens at 2am. If the answer is 988 or the emergency room, that is honest but it is also the whole answer.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">How is progress measured?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Named instruments administered on a schedule. Anything else is impression.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-insurance" role="tabpanel"
+        aria-labelledby="ctab-insurance" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Insurance & cost</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For everyone, because this is where the avoidable damage happens. Nobody in this market publishes prices, so the only protection is asking precise questions and getting the answers in writing before intake rather than after.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Are you in network for my specific plan, or billing as out of network?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Not "do you take my insurance." The difference between in and out of network is frequently thousands of dollars, and both answers sound like yes on the phone.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">What is the expected out-of-pocket total, in writing, before I start?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>A center that will not put a number in writing is telling you something. Ask for a range with the assumptions stated.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Do you accept Medicaid or Medicare?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>ChoicePoint states it accepts both. BlueCrest states it accepts neither. Most others do not say, which usually means no.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">How many days or sessions has my plan authorized so far?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Authorizations are often much shorter than the program length being described to you.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">What happens when the authorization runs out mid-treatment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether you will be discharged, transitioned, or billed privately. This is the moment people get hurt.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">Is any part of my treatment plan delivered by a different provider?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Detox at a partner facility, labs, psychiatric services. Each can carry its own network status and its own bill.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">What is the self-pay rate per level of care?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask even if you have insurance. It tells you what the program actually costs and gives you a reference point.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">Is there a sliding scale or financial hardship policy?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask before the clinical conversation, not after. It is a different department and a different answer.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Will you bill me for missed sessions?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Common and often unmentioned. Ask for the policy in writing.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">Who do I contact about a bill I do not understand?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for a name and a direct number. "Billing" is not an answer.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-working" role="tabpanel"
+        aria-labelledby="ctab-working" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Working professionals</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For people who cannot stop working to get treatment. The scheduling question is not a convenience issue, it is the difference between completing a program and dropping out of one, and most centers run during business hours.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">Do you run a genuine evening program, and what are the exact hours?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Valley Spring publishes Monday to Friday, 6:00 to 9:00 PM. North Jersey Recovery Center also lists an evening option. Ask for start and end times, not "we have evenings."</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">What happens if I miss a session for work?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for the attendance policy and the make-up path before you enroll.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Can I take FMLA for this, and will you complete the paperwork?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Treatment for a serious health condition can qualify. Ask who on staff completes employer forms and how quickly.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">What does my employer have to be told?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>In most cases, nothing about the diagnosis. Ask what the center will and will not disclose, and get it in writing.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Do you offer case management or return-to-work support?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Valley Spring publishes both. Ask what it concretely involves rather than whether it exists.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">Is telehealth available if I travel for work?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether it is equivalent to in-person attendance or counted differently.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">Do you work with employee assistance programs?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>An EAP referral can change both cost and confidentiality. Ask how it is handled.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">If I hold a professional license, are there reporting obligations?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Nurses, physicians, pilots, attorneys and CDL holders all have specific monitoring programs. Ask whether the center has experience with yours.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">Will treatment appear on my insurance explanation of benefits?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>If you are on a family plan, ask who receives the EOB.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">How long is the whole commitment, realistically?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for weeks, not "it varies." You cannot plan around a range nobody will state.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-family" role="tabpanel"
+        aria-labelledby="ctab-family" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Family support</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For parents, partners and adult children trying to help someone who may not have asked for help. The questions here are about what you are entitled to know, what you can actually do, and how to prepare so that nothing stands in the way when the person becomes willing.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">What can you tell me about my family member's treatment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Very little without a signed release, and that is the law working correctly. Ask what a release would cover and how to request one.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Is there a family program, and is it live or recorded?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask who facilitates it, what their credential is, and when it starts relative to admission.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Can I attend if my family member does not want me to?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Usually not the clinical sessions. Ask whether there is separate family education you can attend regardless.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">What should I do if they refuse treatment?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Pushing harder generally backfires. Prepare the practical details in advance so that when they are willing, nothing takes more than an hour to arrange.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Do you offer intervention services or referrals?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether it is in house and what it costs. Interventions are a specialized skill and a bad one causes lasting damage.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">How do I know if this is an emergency?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Withdrawal from alcohol or benzodiazepines, any overdose, and any suicidal statement are emergencies. Call 911 or 988 rather than an admissions line.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">What is the visiting or contact policy during the program?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask specifically, and ask whether it changes by phase.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">How do I keep naloxone in the house, and how do I use it?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Available without a prescription in New Jersey. Ask the center for training if opioids are involved.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">What does relapse mean for the treatment plan?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask whether the person can return and how quickly. Relapse is common and a program's response to it tells you its model.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">What support exists for me, not just for them?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Al-Anon, Nar-Anon and family therapy are different things. Ask which the center actually connects you to.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cpanel" id="cpanel-aftercare" role="tabpanel"
+        aria-labelledby="ctab-aftercare" hidden>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; Aftercare & alumni</p>
+          <h2>Ten questions before you choose</h2>
+          <p>For the phase most people underestimate. Nearly every program describes itself as offering aftercare; far fewer can tell you what specifically exists ninety days after discharge, who runs it, and whether it costs anything.</p>
+        </div>
+        <div class="cpanel-qs">
+          <details class="cq">
+            <summary><span class="cq-n">01</span><span class="cq-t">What exists at ninety days after discharge, specifically?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Not what is offered in week one. Ask about month three, when the structure is gone and the risk is highest.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">02</span><span class="cq-t">Is aftercare included in the program cost or billed separately?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Frequently separate. Ask before you finish the program, not after.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">03</span><span class="cq-t">Who runs the alumni program, and how often does it meet?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask for a schedule. An alumni program that meets when someone remembers to organize it is a mailing list.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">04</span><span class="cq-t">Do you offer sober living, and is it yours or a partner's?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>IKON states it does not provide sober living in house. Ask who owns the house, who staffs it, and what the rules are.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">05</span><span class="cq-t">Will I keep the same therapist when I step down a level?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Continuity of relationship is one of the strongest predictors of staying engaged. Ask directly.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">06</span><span class="cq-t">What is the process for coming back if I relapse?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask how fast, and whether readmission requires starting the intake process from the beginning.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">07</span><span class="cq-t">Do you track outcomes, and will you tell me what they are?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Very few centers will answer this honestly. The answer, including a refusal, is informative.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">08</span><span class="cq-t">Is there recovery coaching or peer support, and is it credentialed?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Certified peer recovery specialists are a recognized credential in New Jersey. Ask whether the coaches hold it.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">09</span><span class="cq-t">How do you help with the practical things after discharge?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Employment, housing, legal issues, transportation. Case management either exists or it does not.</p>
+          </details>
+          <details class="cq">
+            <summary><span class="cq-n">10</span><span class="cq-t">What happens to my medication management after the program ends?</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>Ask who prescribes at month four, and whether they can help you find someone.</p>
+          </details>
+        </div>
+      </div>
+      <!-- /compass:panels -->
     </div>
   </div>
 </section>

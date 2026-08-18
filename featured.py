@@ -43,12 +43,18 @@ BACKGROUNDS = {
 
 # Vertical crop anchor per image, 0 = top of frame, 1 = bottom. The subject sits
 # in a different band in each photograph, so a single anchor loses it.
-ANCHOR = {"river": 0.82, "cascade": 0.30, "woodland": 0.46}
+# (vertical anchor, horizontal anchor, zoom). Zoom > 1 crops tighter and scales
+# back up, which is how a subject sitting off-centre gets pulled to the middle.
+ANCHOR = {
+    "river":    (0.86, 0.50, 1.00),
+    "cascade":  (0.34, 0.44, 1.35),
+    "woodland": (0.42, 0.40, 1.55),
+}
 
 # page slug -> (background, line 1, line 2, filename stem)
 # Line 1 carries the entity. Line 2 expresses the topic without explaining it.
 PAGES = [
-    ("index",                            "river",    "Treatment in Northern New Jersey",  "Six centers, compared",              "treatment-northern-new-jersey"),
+    ("index",                            "woodland", "Treatment in Northern New Jersey",  "Six centers, compared",              "treatment-northern-new-jersey"),
     ("valley-spring-recovery-center",    "river",    "Valley Spring Recovery Center",     "Norwood, Bergen County",             "valley-spring-recovery-center"),
     ("bluecrest-recovery-center",        "cascade",  "BlueCrest Recovery Center",         "Woodland Park, Passaic County",      "bluecrest-recovery-center"),
     ("ikon-recovery-centers",            "woodland", "IKON Recovery Centers",             "Saddle Brook, Bergen County",        "ikon-recovery-centers"),
@@ -60,18 +66,19 @@ PAGES = [
 ]
 
 
-def cover(img, w, h, anchor=0.34):
-    """Crop to fill w x h at the given vertical anchor."""
-    src_r, dst_r = img.width / img.height, w / h
-    if src_r > dst_r:
-        nw = int(img.height * dst_r)
-        left = (img.width - nw) // 2
-        img = img.crop((left, 0, left + nw, img.height))
-    else:
-        nh = int(img.width / dst_r)
-        top = int((img.height - nh) * anchor)
-        img = img.crop((0, top, img.width, top + nh))
-    return img.resize((w, h), Image.LANCZOS)
+def cover(img, w, h, anchor=(0.34, 0.5, 1.0)):
+    """Crop to fill w x h, centred on (vertical, horizontal) anchor with zoom."""
+    ay, ax, zoom = anchor
+    dst_r = w / h
+    # largest window of the target ratio that fits, then tightened by zoom
+    cw = min(img.width, int(img.height * dst_r))
+    ch = int(cw / dst_r)
+    cw, ch = int(cw / zoom), int(ch / zoom)
+    left = int((img.width - cw) * ax)
+    top = int((img.height - ch) * ay)
+    left = max(0, min(left, img.width - cw))
+    top = max(0, min(top, img.height - ch))
+    return img.crop((left, top, left + cw, top + ch)).resize((w, h), Image.LANCZOS)
 
 
 def scrim(img):
@@ -87,7 +94,7 @@ def scrim(img):
 
 def draw_page(bg_key, line1, line2, stem):
     img = Image.open(BACKGROUNDS[bg_key]).convert("RGB")
-    img = cover(img, W, H, ANCHOR.get(bg_key, 0.34))
+    img = cover(img, W, H, ANCHOR.get(bg_key, (0.34, 0.5, 1.0)))
     img = img.filter(ImageFilter.GaussianBlur(0.4))
     img = scrim(img)
     d = ImageDraw.Draw(img)

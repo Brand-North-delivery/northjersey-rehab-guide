@@ -17,6 +17,7 @@ const raw = JSON.parse(readFileSync(join(ROOT, "data/centers.json"), "utf8"));
 const payers = JSON.parse(readFileSync(join(ROOT, "data/payers.json"), "utf8"));
 const verification = JSON.parse(readFileSync(join(ROOT, "data/verification.json"), "utf8"));
 const scores = JSON.parse(readFileSync(join(ROOT, "data/scores.json"), "utf8"));
+const compass = JSON.parse(readFileSync(join(ROOT, "data/compass.json"), "utf8"));
 
 /* Rank and score come from the algorithm, not from the editorial file. If the
    two ever disagree, the algorithm wins and the methodology page stays true. */
@@ -691,6 +692,40 @@ CROSS.forEach(([x, y]) => {
 emit("compare", comparePage());
 emit("how-we-review", methodologyPage());
 
+/* ---------------------------------------------------- the care compass */
+const n2 = (i) => String(i + 1).padStart(2, "0");
+
+const compassTabs = compass.categories
+  .map((c, i) => `        <button class="ctab${i === 0 ? " is-on" : ""}" role="tab" id="ctab-${c.id}"
+          aria-selected="${i === 0}" aria-controls="cpanel-${c.id}" data-panel="${c.id}">
+          <span class="ctab-n">${n2(i)}</span><span class="ctab-l">${c.label}</span>
+        </button>`)
+  .join("\n");
+
+const compassPanels = compass.categories
+  .map((c, i) => `      <div class="cpanel${i === 0 ? " is-on" : ""}" id="cpanel-${c.id}" role="tabpanel"
+        aria-labelledby="ctab-${c.id}"${i === 0 ? "" : " hidden"}>
+        <div class="cpanel-intro">
+          <p class="ceyebrow">Your care compass &middot; ${c.label}</p>
+          <h2>Ten questions before you choose</h2>
+          <p>${c.intro}</p>
+        </div>
+        <div class="cpanel-qs">
+${c.questions.map((q, j) => `          <details class="cq">
+            <summary><span class="cq-n">${n2(j)}</span><span class="cq-t">${q[0]}</span><span class="cq-i" aria-hidden="true"></span></summary>
+            <p>${q[1]}</p>
+          </details>`).join("\n")}
+        </div>
+      </div>`)
+  .join("\n");
+
+const inject = (src, tag, body) => {
+  const a = src.indexOf(`<!-- ${tag} -->`);
+  const b = src.indexOf(`<!-- /${tag} -->`);
+  if (a === -1 || b === -1) throw new Error(`missing ${tag} markers in index.html`);
+  return src.slice(0, a + `<!-- ${tag} -->`.length) + "\n" + body + "\n      " + src.slice(b);
+};
+
 /* hub cards */
 const indexPath = join(ROOT, "index.html");
 let index = readFileSync(indexPath, "utf8");
@@ -703,7 +738,10 @@ if (a === -1 || b === -1) {
   process.exit(1);
 }
 index = index.slice(0, a + START.length) + "\n" + centers.map(card).join("\n") + "\n      " + index.slice(b);
+index = inject(index, "compass:tabs", compassTabs);
+index = inject(index, "compass:panels", compassPanels);
 writeFileSync(indexPath, index, "utf8");
 
 console.log(`Built ${pages.length} pages:`);
+console.log(`  care compass: ${compass.categories.length} categories x ${compass.categories[0].questions.length} questions`);
 console.log(`  ${centers.length} reviews, ${RIVALS.length} alternatives, ${RIVALS.length} worth-it, ${RIVALS.length} head-to-head, ${RIVALS.length} cost, ${CROSS.length} cross, 2 spine`);

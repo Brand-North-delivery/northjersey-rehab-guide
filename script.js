@@ -125,3 +125,37 @@
   });
 
 })();
+
+/* ---------- care compass tabs ---------- */
+(function () {
+  "use strict";
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".ctab"));
+  if (!tabs.length) return;
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".cpanel"));
+
+  function show(id) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("data-panel") === id;
+      t.classList.toggle("is-on", on);
+      t.setAttribute("aria-selected", String(on));
+    });
+    panels.forEach(function (p) {
+      var on = p.id === "cpanel-" + id;
+      p.classList.toggle("is-on", on);
+      p.hidden = !on;
+      if (!on) p.querySelectorAll("details[open]").forEach(function (d) { d.open = false; });
+    });
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { show(t.getAttribute("data-panel")); });
+    t.addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(t);
+      var next = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : -1;
+      if (next < 0 || next >= tabs.length) return;
+      e.preventDefault();
+      tabs[next].focus();
+      show(tabs[next].getAttribute("data-panel"));
+    });
+  });
+})();
