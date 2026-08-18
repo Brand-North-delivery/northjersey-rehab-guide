@@ -1,0 +1,522 @@
+[
+  {
+    "slug": "valley-spring-recovery-center",
+    "pillars": {
+      "credentials": {
+        "raw": 33.8,
+        "max": 55,
+        "pct": 0.6145454545454545,
+        "hits": [
+          {
+            "pts": 8,
+            "label": "State license named on site"
+          },
+          {
+            "pts": 7,
+            "label": "License number published (verifiable against the state register)"
+          },
+          {
+            "pts": 8,
+            "label": "Separate mental health license — can admit without a substance use diagnosis"
+          },
+          {
+            "pts": 5.4,
+            "label": "CARF accreditation — tier B, claimed, correct issuer, not independently confirmed, 9 × 0.6"
+          },
+          {
+            "pts": 5.4,
+            "label": "The Joint Commission accreditation — tier B, claimed, correct issuer, not independently confirmed, 9 × 0.6"
+          }
+        ],
+        "flags": [],
+        "note": "Two license numbers published in NJ format — #200887 for substance use and #70420104 for mental health — issued by the correct New Jersey authority and checkable against the state directory."
+      },
+      "continuity": {
+        "raw": 42,
+        "max": 63,
+        "pct": 0.6666666666666666,
+        "hits": [
+          {
+            "pts": 7,
+            "label": "Partial care"
+          },
+          {
+            "pts": 7,
+            "label": "Intensive outpatient"
+          },
+          {
+            "pts": 5,
+            "label": "Evening IOP — treatment without leaving work"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          },
+          {
+            "pts": 3,
+            "label": "Telehealth delivery"
+          },
+          {
+            "pts": 4,
+            "label": "Alumni program"
+          },
+          {
+            "pts": 4,
+            "label": "Case management"
+          },
+          {
+            "pts": 3,
+            "label": "Family program"
+          },
+          {
+            "pts": 4,
+            "label": "Detox by referral to a partner (discounted — clinical responsibility changes hands)"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 33,
+        "max": 53,
+        "pct": 0.6226415094339622,
+        "hits": [
+          {
+            "pts": 9,
+            "label": "Actual program times published, not just program names"
+          },
+          {
+            "pts": 8,
+            "label": "States which levels of care it does NOT offer"
+          },
+          {
+            "pts": 6,
+            "label": "Clinical staff named with credentials"
+          },
+          {
+            "pts": 4,
+            "label": "Specialty tracks named specifically"
+          },
+          {
+            "pts": 6,
+            "label": "Named payer list published (19 payers)"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.6323,
+    "outOfFive": 3.2,
+    "rank": "01"
+  },
+  {
+    "slug": "bluecrest-recovery-center",
+    "pillars": {
+      "credentials": {
+        "raw": 12.6,
+        "max": 55,
+        "pct": 0.22909090909090912,
+        "hits": [
+          {
+            "pts": 5.4,
+            "label": "CARF accreditation — tier B, claimed, correct issuer, not independently confirmed, 9 × 0.6"
+          },
+          {
+            "pts": 5.4,
+            "label": "The Joint Commission accreditation — tier B, claimed, correct issuer, not independently confirmed, 9 × 0.6"
+          },
+          {
+            "pts": 1.8,
+            "label": "LegitScript certification — tier B, claimed, correct issuer, not independently confirmed, 3 × 0.6"
+          },
+          {
+            "pts": 0,
+            "label": "FLAG — No state license number published"
+          }
+        ],
+        "flags": [
+          "No state license number published"
+        ],
+        "note": "Three seals displayed, all from bodies that are correct for this jurisdiction. No license number is published, so nothing can be checked against the state directory."
+      },
+      "continuity": {
+        "raw": 44,
+        "max": 63,
+        "pct": 0.6984126984126984,
+        "hits": [
+          {
+            "pts": 12,
+            "label": "Medical detox on site"
+          },
+          {
+            "pts": 9,
+            "label": "Residential level"
+          },
+          {
+            "pts": 7,
+            "label": "Partial care"
+          },
+          {
+            "pts": 7,
+            "label": "Intensive outpatient"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          },
+          {
+            "pts": 4,
+            "label": "Alumni program"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 3,
+        "max": 53,
+        "pct": 0.05660377358490566,
+        "hits": [
+          {
+            "pts": 3,
+            "label": "Public insurance position stated (excludes)"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.3164,
+    "outOfFive": 1.6,
+    "rank": "02"
+  },
+  {
+    "slug": "ikon-recovery-centers",
+    "pillars": {
+      "credentials": {
+        "raw": 11.2,
+        "max": 55,
+        "pct": 0.20363636363636362,
+        "hits": [
+          {
+            "pts": 0,
+            "label": "State license named on site — tier C, claimed but does not check out, no points"
+          },
+          {
+            "pts": 0,
+            "label": "License number published (verifiable against the state register) — tier C, claimed but does not check out, no points"
+          },
+          {
+            "pts": 0,
+            "label": "License expiration date published — tier C, claimed but does not check out, no points"
+          },
+          {
+            "pts": 5.4,
+            "label": "The Joint Commission accreditation — tier B, claimed, correct issuer, not independently confirmed, 9 × 0.6"
+          },
+          {
+            "pts": 1.8,
+            "label": "LegitScript certification — tier B, claimed, correct issuer, not independently confirmed, 3 × 0.6"
+          },
+          {
+            "pts": 2,
+            "label": "Professional membership body (dues, not an inspection): NAADAC"
+          },
+          {
+            "pts": 2,
+            "label": "Professional membership body (dues, not an inspection): NALGAP"
+          },
+          {
+            "pts": 0,
+            "label": "FLAG — Licensing statement names a California agency for a New Jersey facility"
+          }
+        ],
+        "flags": [
+          "Licensing statement names a California agency for a New Jersey facility"
+        ],
+        "note": "Publishes \"Licensed by the State Department of Healthcare Services, License 2000964. Expiration 11/30/2026.\" The Department of Health Care Services is California's agency. New Jersey licenses addiction treatment through DMHAS and the Department of Health and has no department of that name, so this claim does not verify for a Saddle Brook, NJ facility. NAADAC and NALGAP are membership associations, not accreditors, and are displayed as badges alongside accreditation seals."
+      },
+      "continuity": {
+        "raw": 30,
+        "max": 63,
+        "pct": 0.47619047619047616,
+        "hits": [
+          {
+            "pts": 7,
+            "label": "Partial care"
+          },
+          {
+            "pts": 7,
+            "label": "Intensive outpatient"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          },
+          {
+            "pts": 3,
+            "label": "Telehealth delivery"
+          },
+          {
+            "pts": 4,
+            "label": "Alumni program"
+          },
+          {
+            "pts": 4,
+            "label": "Detox by referral to a partner (discounted — clinical responsibility changes hands)"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 12,
+        "max": 53,
+        "pct": 0.22641509433962265,
+        "hits": [
+          {
+            "pts": 8,
+            "label": "States which levels of care it does NOT offer"
+          },
+          {
+            "pts": 4,
+            "label": "Specialty tracks named specifically"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.2905,
+    "outOfFive": 1.5,
+    "rank": "03"
+  },
+  {
+    "slug": "choicepoint",
+    "pillars": {
+      "credentials": {
+        "raw": 1.8,
+        "max": 55,
+        "pct": 0.03272727272727273,
+        "hits": [
+          {
+            "pts": 1.8,
+            "label": "LegitScript certification — tier B, claimed, correct issuer, not independently confirmed, 3 × 0.6"
+          },
+          {
+            "pts": 0,
+            "label": "FLAG — No state license number published"
+          }
+        ],
+        "flags": [
+          "No state license number published"
+        ],
+        "note": "No state license published. LegitScript certification is an advertising and payment-eligibility check, not a clinical inspection, and is weighted accordingly."
+      },
+      "continuity": {
+        "raw": 27,
+        "max": 63,
+        "pct": 0.42857142857142855,
+        "hits": [
+          {
+            "pts": 12,
+            "label": "Medical detox on site"
+          },
+          {
+            "pts": 7,
+            "label": "Intensive outpatient"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          },
+          {
+            "pts": 3,
+            "label": "Telehealth delivery"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 11,
+        "max": 53,
+        "pct": 0.20754716981132076,
+        "hits": [
+          {
+            "pts": 4,
+            "label": "Specialty tracks named specifically"
+          },
+          {
+            "pts": 4,
+            "label": "Specific medications named"
+          },
+          {
+            "pts": 3,
+            "label": "Public insurance position stated (accepts)"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.2006,
+    "outOfFive": 1,
+    "rank": "04"
+  },
+  {
+    "slug": "north-jersey-recovery-center",
+    "pillars": {
+      "credentials": {
+        "raw": 0,
+        "max": 55,
+        "pct": 0,
+        "hits": [
+          {
+            "pts": 0,
+            "label": "FLAG — No state license number published"
+          },
+          {
+            "pts": 0,
+            "label": "FLAG — No accreditation published"
+          }
+        ],
+        "flags": [
+          "No state license number published",
+          "No accreditation published"
+        ],
+        "note": "Neither licensure nor accreditation is published anywhere on the site."
+      },
+      "continuity": {
+        "raw": 24,
+        "max": 63,
+        "pct": 0.38095238095238093,
+        "hits": [
+          {
+            "pts": 7,
+            "label": "Partial care"
+          },
+          {
+            "pts": 7,
+            "label": "Intensive outpatient"
+          },
+          {
+            "pts": 5,
+            "label": "Evening IOP — treatment without leaving work"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 7,
+        "max": 53,
+        "pct": 0.1320754716981132,
+        "hits": [
+          {
+            "pts": 4,
+            "label": "Specialty tracks named specifically"
+          },
+          {
+            "pts": 3,
+            "label": "Mental health track stated separately"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.1509,
+    "outOfFive": 0.8,
+    "rank": "05"
+  },
+  {
+    "slug": "boca-recovery-center-englewood",
+    "pillars": {
+      "credentials": {
+        "raw": 0,
+        "max": 55,
+        "pct": 0,
+        "hits": [
+          {
+            "pts": 0,
+            "label": "FLAG — No location-level license published"
+          },
+          {
+            "pts": 0,
+            "label": "FLAG — Accreditation not stated for the Englewood site"
+          }
+        ],
+        "flags": [
+          "No location-level license published",
+          "Accreditation not stated for the Englewood site"
+        ],
+        "note": "Company-wide materials only. Nothing verifiable is published for the Englewood address specifically, and a multi-state operator's national page is not evidence about one location."
+      },
+      "continuity": {
+        "raw": 20,
+        "max": 63,
+        "pct": 0.31746031746031744,
+        "hits": [
+          {
+            "pts": 12,
+            "label": "Medical detox on site"
+          },
+          {
+            "pts": 5,
+            "label": "Outpatient"
+          },
+          {
+            "pts": 3,
+            "label": "Family program"
+          }
+        ]
+      },
+      "transparency": {
+        "raw": 0,
+        "max": 53,
+        "pct": 0,
+        "hits": [
+          {
+            "pts": 4,
+            "label": "Specialty tracks named specifically"
+          },
+          {
+            "pts": -4,
+            "label": "Location-level detail thinner than company-wide pages"
+          }
+        ]
+      },
+      "reputation": null
+    },
+    "weightsUsed": {
+      "credentials": 0.412,
+      "continuity": 0.294,
+      "transparency": 0.294
+    },
+    "reputationPending": true,
+    "composite": 0.0934,
+    "outOfFive": 0.5,
+    "rank": "06"
+  }
+]

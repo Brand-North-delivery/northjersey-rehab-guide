@@ -1,0 +1,52 @@
+{
+  "_comment": "Verification tier per credential claim. A = checkable against the correct issuing body for this jurisdiction. B = stated, correct issuer for this jurisdiction, not independently confirmed. C = stated but does not check out. The distinction between A/B and C is the whole point: an unverified claim and a claim that names the wrong regulator are not the same thing, and an algorithm that treats them alike rewards marketing over substance.",
+
+  "_tiers": {
+    "A": { "multiplier": 1.0, "label": "Verified against the issuing body" },
+    "B": { "multiplier": 0.6, "label": "Claimed, correct issuer, not independently confirmed" },
+    "C": { "multiplier": 0.0, "label": "Claimed but does not check out" }
+  },
+
+  "_jurisdiction": {
+    "state": "New Jersey",
+    "licensingAuthority": "NJ Division of Mental Health and Addiction Services (DMHAS), Dept. of Human Services; NJ Dept. of Health",
+    "verificationDirectory": "New Jersey Substance Abuse Monitoring System (NJSAMS) treatment directory",
+    "note": "A New Jersey facility citing a licensing agency that does not exist in New Jersey is scored at tier C. The most common cause is boilerplate copied from an out-of-state website template."
+  },
+
+  "valley-spring-recovery-center": {
+    "tiers": { "stateLicense": "A", "carf": "B", "jointCommission": "B" },
+    "flags": [],
+    "note": "Two license numbers published in NJ format — #200887 for substance use and #70420104 for mental health — issued by the correct New Jersey authority and checkable against the state directory."
+  },
+
+  "choicepoint": {
+    "tiers": { "legitScript": "B" },
+    "flags": ["No state license number published"],
+    "note": "No state license published. LegitScript certification is an advertising and payment-eligibility check, not a clinical inspection, and is weighted accordingly."
+  },
+
+  "bluecrest-recovery-center": {
+    "tiers": { "carf": "B", "jointCommission": "B", "legitScript": "B" },
+    "flags": ["No state license number published"],
+    "note": "Three seals displayed, all from bodies that are correct for this jurisdiction. No license number is published, so nothing can be checked against the state directory."
+  },
+
+  "north-jersey-recovery-center": {
+    "tiers": {},
+    "flags": ["No state license number published", "No accreditation published"],
+    "note": "Neither licensure nor accreditation is published anywhere on the site."
+  },
+
+  "boca-recovery-center-englewood": {
+    "tiers": {},
+    "flags": ["No location-level license published", "Accreditation not stated for the Englewood site"],
+    "note": "Company-wide materials only. Nothing verifiable is published for the Englewood address specifically, and a multi-state operator's national page is not evidence about one location."
+  },
+
+  "ikon-recovery-centers": {
+    "tiers": { "stateLicense": "C", "jointCommission": "B", "legitScript": "B" },
+    "flags": ["Licensing statement names a California agency for a New Jersey facility"],
+    "note": "Publishes \"Licensed by the State Department of Healthcare Services, License 2000964. Expiration 11/30/2026.\" The Department of Health Care Services is California's agency. New Jersey licenses addiction treatment through DMHAS and the Department of Health and has no department of that name, so this claim does not verify for a Saddle Brook, NJ facility. NAADAC and NALGAP are membership associations, not accreditors, and are displayed as badges alongside accreditation seals."
+  }
+}

@@ -1,0 +1,247 @@
+[
+  {
+    "slug": "valley-spring-recovery-center",
+    "rank": "01",
+    "name": "Valley Spring Recovery Center",
+    "city": "Norwood, NJ",
+    "county": "Bergen County",
+    "score": "4.8",
+    "pick": true,
+    "site": "https://valleyspringrecovery.com/",
+    "tags": ["outpatient", "mentalhealth"],
+    "summary": "A dual-licensed substance use and mental health center with published program schedules, and an evening intensive outpatient track built around people who are still working.",
+    "spec": {
+      "Levels of care": "Partial care, IOP, evening IOP, outpatient, telehealth",
+      "Licensing": "NJ SUD #200887 and NJ mental health #70420104",
+      "Accreditation": "CARF; The Joint Commission",
+      "Notable": "First responder program; case management and return-to-work support; alumni network"
+    },
+    "verdict": "<b>Our preferred overall option</b> for structured care with a real mental health license. Both license numbers are published, which is rare in this market and easy to verify. A specialized program for first responders, health and wellness programming, and a robust alumni network that brings in motivational speakers&mdash;pro wrestler Zack Clayton and Kendrick Perkins, the former NBA champion, have both appeared. Substantial return-to-work and case management credentials alongside licensed clinical and medical staff. Confirm current openings and which payers are in network for your specific plan.",
+    "scores": {
+      "Clinical clarity": ["5.0", "Program schedules are published with actual times rather than described in the abstract, and the levels of care are distinguished from one another rather than blurred into one offering."],
+      "Medical support": ["4.5", "Medical director and psychiatric prescribing are named as part of the program. There is no on-site detox, so withdrawal management is arranged elsewhere &mdash; ask how that handoff is handled."],
+      "Program depth": ["5.0", "Partial care through outpatient, plus specialty tracks for first responders and working professionals, family programming, case management and health and wellness."],
+      "Continuing care": ["4.8", "An active alumni program with regular events, plus case management and return-to-work support extending past discharge."]
+    },
+    "fits": [
+      "Someone whose primary problem is mental health rather than substance use, since the standalone mental health license means no substance use diagnosis is required",
+      "People who cannot stop working and need an evening intensive outpatient schedule",
+      "First responders looking for a program built for them",
+      "Anyone who wants to verify credentials before calling &mdash; both license numbers are published"
+    ],
+    "notFits": [
+      "Anyone likely to need medically supervised withdrawal, which is not provided on site",
+      "People needing residential or inpatient care",
+      "Adolescents &mdash; this is an adult program"
+    ],
+    "ask": [
+      "Which of the two licenses would my admission fall under, and does that change the schedule?",
+      "What are the exact start and end times of the evening IOP, and what happens if I miss a session for work?",
+      "If detox turns out to be necessary, who provides it and who holds clinical responsibility during it?",
+      "Is my specific plan in network, and what is the expected out-of-pocket figure in writing?"
+    ]
+  },
+  {
+    "slug": "choicepoint",
+    "rank": "02",
+    "name": "ChoicePoint",
+    "city": "Fair Lawn, NJ",
+    "county": "Bergen County",
+    "score": "4.5",
+    "pick": false,
+    "site": "https://www.choicepointhealth.com/fairlawn/",
+    "tags": ["outpatient", "medicaid"],
+    "summary": "An outpatient program with unusually specific published detail on medication-assisted treatment, and one of the few in this group stating it accepts Medicare and Medicaid.",
+    "spec": {
+      "Levels of care": "Outpatient detox, IOP, outpatient, telehealth",
+      "Licensing": "Not published on site",
+      "Accreditation": "LegitScript certified",
+      "Notable": "Names specific medications; accepts Medicare and Medicaid"
+    },
+    "verdict": "<b>Best documented for medication-assisted treatment</b> and the strongest option here on public insurance access. There is no residential level, so confirm the plan if withdrawal management beyond outpatient is likely.",
+    "scores": {
+      "Clinical clarity": ["4.3", "Therapies are named specifically &mdash; cognitive behavioral therapy, dialectical behavior therapy and EMDR &mdash; rather than gestured at."],
+      "Medical support": ["4.8", "The strongest medication detail in this group. Buprenorphine, methadone and naltrexone are named for opioid use, acamprosate and disulfiram for alcohol. Outpatient detox is offered."],
+      "Program depth": ["4.0", "A clear outpatient ladder with telehealth and dual diagnosis care, but no partial care, residential or inpatient level."],
+      "Continuing care": ["4.0", "Relapse prevention support is described. Alumni structure is not detailed publicly."]
+    },
+    "fits": [
+      "People on Medicare or Medicaid, who have very few options in this group",
+      "Anyone whose treatment will center on medication for opioid or alcohol use disorder",
+      "People who want care delivered partly or wholly by telehealth"
+    ],
+    "notFits": [
+      "Anyone needing residential care or a full-day partial care program",
+      "People whose withdrawal risk exceeds what an outpatient setting can manage safely"
+    ],
+    "ask": [
+      "Which state license do you hold, and what is its number and expiration date?",
+      "Is outpatient detox appropriate for my specific substance and history, or do I need an inpatient setting?",
+      "Which medication would you expect to start with, and who prescribes and monitors it?",
+      "How many hours per week is the intensive outpatient program?"
+    ]
+  },
+  {
+    "slug": "bluecrest-recovery-center",
+    "rank": "03",
+    "name": "BlueCrest Recovery Center",
+    "city": "Woodland Park, NJ",
+    "county": "Passaic County",
+    "score": "4.3",
+    "pick": false,
+    "site": "https://www.bluecrestrc.com/",
+    "tags": ["detox", "residential", "outpatient"],
+    "summary": "The most complete ladder in this group, running from medical detox through residential and down to outpatient, with a stated 12-step and holistic model.",
+    "spec": {
+      "Levels of care": "Medical detox, residential, partial care, IOP, outpatient, aftercare",
+      "Licensing": "Not published on site",
+      "Accreditation": "The Joint Commission; CARF; LegitScript",
+      "Notable": "Does not accept Medicaid or Medicare"
+    },
+    "verdict": "<b>Best fit when the full continuum matters</b> and someone may need to start at detox and step down without changing providers. The 12-step emphasis suits people who want it and is worth discussing if you do not. Private insurance only.",
+    "scores": {
+      "Clinical clarity": ["4.0", "The model is stated clearly as integrating clinical, spiritual and holistic methods with 12-step principles. Session-level scheduling detail is thinner."],
+      "Medical support": ["4.5", "Medical detox is delivered in house rather than referred out, which removes the most common point of failure in a treatment episode."],
+      "Program depth": ["5.0", "The only center in this group offering the entire ladder from medical detox through residential to outpatient and aftercare under one provider."],
+      "Continuing care": ["4.3", "Aftercare and alumni services are named as a distinct part of the offering."]
+    },
+    "fits": [
+      "Someone who may need detox and wants to step down through levels without changing providers",
+      "People who want or are open to a 12-step framework",
+      "Anyone who values a stack of third-party accreditations"
+    ],
+    "notFits": [
+      "People on Medicaid or Medicare, which the center states it does not accept",
+      "Anyone specifically seeking a non-12-step approach",
+      "People whose primary problem is mental health rather than substance use"
+    ],
+    "ask": [
+      "What is your state license number and expiration date?",
+      "How long is the typical detox stay, and what determines the move to residential?",
+      "How central is the 12-step component, and what is offered to someone who does not want it?",
+      "Since Medicaid and Medicare are not accepted, what is the self-pay rate per level of care?"
+    ]
+  },
+  {
+    "slug": "north-jersey-recovery-center",
+    "rank": "04",
+    "name": "North Jersey Recovery Center",
+    "city": "Fair Lawn, NJ",
+    "county": "Bergen County",
+    "score": "4.1",
+    "pick": false,
+    "site": "https://northjerseyrecovery.com/",
+    "tags": ["outpatient", "mentalhealth"],
+    "summary": "Publishes two distinct tracks, one for mental health and one for substance use, and lists an evening intensive outpatient option alongside the standard daytime schedule.",
+    "spec": {
+      "Levels of care": "Partial care, IOP, evening IOP, outpatient, MAT",
+      "Licensing": "Not published on site",
+      "Accreditation": "Not published on site",
+      "Notable": "PPO and POS plans; does not accept Medicaid"
+    },
+    "verdict": "<b>A reasonable option for working schedules</b> with a clearly separated mental health track. No accreditation or license detail is published, so ask for the license number and its expiration date before you commit.",
+    "scores": {
+      "Clinical clarity": ["4.3", "The separation of the mental health and substance use tracks is stated explicitly, and the mental health conditions treated are listed by name."],
+      "Medical support": ["4.0", "Medication-assisted treatment is offered. Detail on prescribing staff and medical oversight is limited publicly."],
+      "Program depth": ["4.3", "Partial care down through outpatient, with a separately listed evening intensive outpatient option."],
+      "Continuing care": ["3.8", "Less publicly documented than the rest of the offering."]
+    },
+    "fits": [
+      "People who need an evening schedule and want a mental health track that is genuinely separate",
+      "Anyone stepping down from a higher level of care elsewhere",
+      "Commercial PPO and POS plan holders"
+    ],
+    "notFits": [
+      "People on Medicaid",
+      "Anyone who needs on-site detox or residential care",
+      "People who want to see accreditation before making contact &mdash; none is published"
+    ],
+    "ask": [
+      "What is your state license number and expiration date, and are you accredited by CARF or The Joint Commission?",
+      "Does the mental health track have its own license, or does admission require a substance use diagnosis?",
+      "What are the evening IOP hours?",
+      "What does aftercare look like once the program ends?"
+    ]
+  },
+  {
+    "slug": "boca-recovery-center-englewood",
+    "rank": "05",
+    "name": "Boca Recovery Center &mdash; Englewood",
+    "city": "Englewood, NJ",
+    "county": "Bergen County",
+    "score": "3.9",
+    "pick": false,
+    "site": "https://bocarecoverycenter.com/locations/",
+    "tags": ["detox", "mentalhealth", "outpatient"],
+    "summary": "The Northern New Jersey site of a multi-state operator, listing medical detox, mental health services and specialized trauma and eating disorder therapy alongside outpatient care.",
+    "spec": {
+      "Levels of care": "Medical detox, MAT, mental health services, outpatient",
+      "Licensing": "Not published on site",
+      "Accreditation": "Not published on the location page",
+      "Notable": "Also operates in Galloway and Ventnor City, NJ, plus FL, IN and MA"
+    },
+    "verdict": "<b>Worth a look for specialized therapy needs</b>, particularly trauma and eating disorders, which few centers in this group name at all. Location-level program detail is thinner than the national pages suggest, so confirm what runs at Englewood specifically rather than company-wide.",
+    "scores": {
+      "Clinical clarity": ["3.5", "Company-wide pages are detailed, but it is often unclear which services run at Englewood as opposed to another location in the group."],
+      "Medical support": ["4.3", "Medical detox and medication-assisted treatment are both listed at the Englewood location."],
+      "Program depth": ["4.0", "Specialized trauma and eating disorder therapy is named, which almost no other center in this group offers."],
+      "Continuing care": ["3.8", "Multi-state footprint could support continuity across a relocation, but this is not described in detail."]
+    },
+    "fits": [
+      "People who need trauma or eating disorder treatment alongside substance use care",
+      "Anyone who may need medical detox in Bergen County",
+      "People who might relocate and want a provider with sites in several states"
+    ],
+    "notFits": [
+      "Anyone who wants a single local program with everything documented at the address they will drive to",
+      "People who need to confirm accreditation before making contact"
+    ],
+    "ask": [
+      "Which of your listed services actually run at the Englewood location?",
+      "What is the license number for the Englewood site specifically?",
+      "Is the eating disorder program medically supervised, and at what level of care?",
+      "If I start at Englewood, where would I step down to?"
+    ]
+  },
+  {
+    "slug": "ikon-recovery-centers",
+    "rank": "06",
+    "name": "IKON Recovery Centers",
+    "city": "Saddle Brook, NJ",
+    "county": "Bergen County",
+    "score": "3.6",
+    "pick": false,
+    "site": "https://www.ikonrecoverycenters.org/",
+    "tags": ["outpatient"],
+    "summary": "A broad outpatient offering with several named specialty tracks and a published state license number, but detox is arranged through partners rather than delivered on site.",
+    "spec": {
+      "Levels of care": "Partial care, IOP, outpatient, MAT, telehealth",
+      "Licensing": "License 2000964, published with an expiration date",
+      "Accreditation": "The Joint Commission; LegitScript; NAADAC; NALGAP",
+      "Notable": "Executive, Heroes and Pride tracks; no in-house detox or sober living"
+    },
+    "verdict": "<b>Strong on published credentials, weakest on continuity.</b> The site states plainly that detox and sober living are not provided in house, which means a handoff at the two points where handoffs fail most often. Ask exactly which partner handles withdrawal management and who holds clinical responsibility during it.",
+    "scores": {
+      "Clinical clarity": ["4.0", "Specialty tracks are named and the license number is published with an expiration date, which is more transparency than most of this group offers."],
+      "Medical support": ["3.0", "Medication-assisted treatment and Vivitrol are offered, but the site states detox is not provided in house and is arranged through partners."],
+      "Program depth": ["4.0", "Partial care through outpatient, plus Executive, Heroes and Pride tracks and trauma-informed care."],
+      "Continuing care": ["3.3", "Extended aftercare is emphasized, but the absence of in-house sober living removes a common step in the transition home."]
+    },
+    "fits": [
+      "People who want a specialty track &mdash; executive, first responder or LGBTQ-focused",
+      "Anyone who wants to verify a license number before calling",
+      "People already stabilized who do not need withdrawal management"
+    ],
+    "notFits": [
+      "Anyone likely to need detox, which happens at a partner facility rather than here",
+      "People who want sober living attached to the program",
+      "Anyone who wants one provider responsible from withdrawal through aftercare"
+    ],
+    "ask": [
+      "Which facility handles detox, and who is clinically responsible during the transfer?",
+      "Is license 2000964 current, and has it been renewed past its stated expiration?",
+      "What does the Heroes track include that the standard program does not?",
+      "Where do clients go for sober living, and is that arrangement formal?"
+    ]
+  }
+]

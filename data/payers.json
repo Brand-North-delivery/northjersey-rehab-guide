@@ -1,0 +1,38 @@
+{
+  "valley-spring-recovery-center": {
+    "network": "In network with 19 commercial payers, published on site",
+    "public": "Not published as a Medicaid or Medicare provider",
+    "selfPay": "Rate not published",
+    "note": "Verifies benefits before intake and publishes an insurance verification path. Because it holds a standalone mental health license, a mental-health-primary admission is billed against mental health benefits rather than substance use benefits &mdash; which matters if substance use benefits are exhausted or excluded."
+  },
+  "choicepoint": {
+    "network": "States it accepts most major insurance",
+    "public": "Accepts Medicare and Medicaid",
+    "selfPay": "Rate not published",
+    "note": "The only center in this group publicly stating it accepts both Medicare and Medicaid. For anyone on public insurance, that is usually the deciding fact rather than a tiebreaker."
+  },
+  "bluecrest-recovery-center": {
+    "network": "Accepts most major private insurance",
+    "public": "States it does <b>not</b> accept Medicaid or Medicare",
+    "selfPay": "Rate not published",
+    "note": "The exclusion of public insurance is stated plainly, which is more useful than discovering it at intake. Because the full ladder from detox to outpatient is in house, one benefit authorization may cover a longer episode."
+  },
+  "north-jersey-recovery-center": {
+    "network": "Accepts most PPO and POS policies",
+    "public": "States it does <b>not</b> accept Medicaid",
+    "selfPay": "Rate not published",
+    "note": "Plan-type language (PPO and POS) rather than named carriers means you should confirm your specific plan rather than assuming from the category."
+  },
+  "boca-recovery-center-englewood": {
+    "network": "Insurance accepted; carrier detail is company-wide rather than location-specific",
+    "public": "Not published for the Englewood location",
+    "selfPay": "Rate not published",
+    "note": "Verify coverage against the Englewood location specifically. Multi-state operators frequently hold different contracts per site, and a national page is not evidence about a particular address."
+  },
+  "ikon-recovery-centers": {
+    "network": "Insurance accepted; carrier list not published",
+    "public": "Not published",
+    "selfPay": "Rate not published",
+    "note": "Because detox happens at a partner facility, ask whether that partner is in network too. A covered outpatient program paired with an out-of-network detox is a common and expensive surprise."
+  }
+}

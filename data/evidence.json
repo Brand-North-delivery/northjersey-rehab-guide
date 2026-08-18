@@ -1,0 +1,224 @@
+{
+  "_comment": "Raw verifiable evidence per center. Every field is a yes/no or a number taken from the center's own published materials in August 2026. score.mjs turns this into the published scores. Nothing here is a judgement call; the judgement lives in the weights, which are published on /how-we-review/.",
+
+  "valley-spring-recovery-center": {
+    "credentials": {
+      "stateLicensePublished": true,
+      "licenseNumberPublished": true,
+      "licenseExpiryPublished": false,
+      "secondLicenseMentalHealth": true,
+      "carf": true,
+      "jointCommission": true,
+      "legitScript": false,
+      "memberships": []
+    },
+    "continuity": {
+      "detoxOnSite": false,
+      "detoxByReferral": true,
+      "residential": false,
+      "partialCare": true,
+      "iop": true,
+      "eveningIop": true,
+      "outpatient": true,
+      "telehealth": true,
+      "soberLivingOnSite": false,
+      "alumniProgram": true,
+      "caseManagement": true,
+      "familyProgram": true
+    },
+    "transparency": {
+      "scheduleTimesPublished": true,
+      "levelsNotOfferedStated": true,
+      "payerCountPublished": 19,
+      "namedClinicalStaff": true,
+      "specialtyTracksNamed": true,
+      "selfPayRatePublished": false
+    },
+    "reputation": null
+  },
+
+  "choicepoint": {
+    "credentials": {
+      "stateLicensePublished": false,
+      "licenseNumberPublished": false,
+      "licenseExpiryPublished": false,
+      "secondLicenseMentalHealth": false,
+      "carf": false,
+      "jointCommission": false,
+      "legitScript": true,
+      "memberships": []
+    },
+    "continuity": {
+      "detoxOnSite": true,
+      "detoxByReferral": false,
+      "residential": false,
+      "partialCare": false,
+      "iop": true,
+      "eveningIop": false,
+      "outpatient": true,
+      "telehealth": true,
+      "soberLivingOnSite": false,
+      "alumniProgram": false,
+      "caseManagement": false,
+      "familyProgram": false
+    },
+    "transparency": {
+      "scheduleTimesPublished": false,
+      "levelsNotOfferedStated": false,
+      "payerCountPublished": 0,
+      "namedClinicalStaff": false,
+      "specialtyTracksNamed": true,
+      "selfPayRatePublished": false,
+      "medicationsNamed": true,
+      "publicInsuranceAccepted": true
+    },
+    "reputation": null
+  },
+
+  "bluecrest-recovery-center": {
+    "credentials": {
+      "stateLicensePublished": false,
+      "licenseNumberPublished": false,
+      "licenseExpiryPublished": false,
+      "secondLicenseMentalHealth": false,
+      "carf": true,
+      "jointCommission": true,
+      "legitScript": true,
+      "memberships": []
+    },
+    "continuity": {
+      "detoxOnSite": true,
+      "detoxByReferral": false,
+      "residential": true,
+      "partialCare": true,
+      "iop": true,
+      "eveningIop": false,
+      "outpatient": true,
+      "telehealth": false,
+      "soberLivingOnSite": false,
+      "alumniProgram": true,
+      "caseManagement": false,
+      "familyProgram": false
+    },
+    "transparency": {
+      "scheduleTimesPublished": false,
+      "levelsNotOfferedStated": false,
+      "payerCountPublished": 0,
+      "namedClinicalStaff": false,
+      "specialtyTracksNamed": false,
+      "selfPayRatePublished": false,
+      "publicInsuranceExclusionStated": true
+    },
+    "reputation": null
+  },
+
+  "north-jersey-recovery-center": {
+    "credentials": {
+      "stateLicensePublished": false,
+      "licenseNumberPublished": false,
+      "licenseExpiryPublished": false,
+      "secondLicenseMentalHealth": false,
+      "carf": false,
+      "jointCommission": false,
+      "legitScript": false,
+      "memberships": []
+    },
+    "continuity": {
+      "detoxOnSite": false,
+      "detoxByReferral": false,
+      "residential": false,
+      "partialCare": true,
+      "iop": true,
+      "eveningIop": true,
+      "outpatient": true,
+      "telehealth": false,
+      "soberLivingOnSite": false,
+      "alumniProgram": false,
+      "caseManagement": false,
+      "familyProgram": false
+    },
+    "transparency": {
+      "scheduleTimesPublished": false,
+      "levelsNotOfferedStated": false,
+      "payerCountPublished": 0,
+      "namedClinicalStaff": false,
+      "specialtyTracksNamed": true,
+      "selfPayRatePublished": false,
+      "separateMentalHealthTrackStated": true
+    },
+    "reputation": null
+  },
+
+  "boca-recovery-center-englewood": {
+    "credentials": {
+      "stateLicensePublished": false,
+      "licenseNumberPublished": false,
+      "licenseExpiryPublished": false,
+      "secondLicenseMentalHealth": false,
+      "carf": false,
+      "jointCommission": false,
+      "legitScript": false,
+      "memberships": []
+    },
+    "continuity": {
+      "detoxOnSite": true,
+      "detoxByReferral": false,
+      "residential": false,
+      "partialCare": false,
+      "iop": false,
+      "eveningIop": false,
+      "outpatient": true,
+      "telehealth": false,
+      "soberLivingOnSite": false,
+      "alumniProgram": false,
+      "caseManagement": false,
+      "familyProgram": true
+    },
+    "transparency": {
+      "scheduleTimesPublished": false,
+      "levelsNotOfferedStated": false,
+      "payerCountPublished": 0,
+      "namedClinicalStaff": false,
+      "specialtyTracksNamed": true,
+      "selfPayRatePublished": false,
+      "locationLevelDetailThin": true
+    },
+    "reputation": null
+  },
+
+  "ikon-recovery-centers": {
+    "credentials": {
+      "stateLicensePublished": true,
+      "licenseNumberPublished": true,
+      "licenseExpiryPublished": true,
+      "secondLicenseMentalHealth": false,
+      "carf": false,
+      "jointCommission": true,
+      "legitScript": true,
+      "memberships": ["NAADAC", "NALGAP"]
+    },
+    "continuity": {
+      "detoxOnSite": false,
+      "detoxByReferral": true,
+      "residential": false,
+      "partialCare": true,
+      "iop": true,
+      "eveningIop": false,
+      "outpatient": true,
+      "telehealth": true,
+      "soberLivingOnSite": false,
+      "alumniProgram": true,
+      "caseManagement": false,
+      "familyProgram": false
+    },
+    "transparency": {
+      "scheduleTimesPublished": false,
+      "levelsNotOfferedStated": true,
+      "payerCountPublished": 0,
+      "namedClinicalStaff": false,
+      "specialtyTracksNamed": true,
+      "selfPayRatePublished": false
+    },
+    "reputation": null
+  }
+}
