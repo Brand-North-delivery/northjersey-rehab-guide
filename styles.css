@@ -432,3 +432,25 @@ h3.sub:first-of-type{margin-top:0}
   .cpanel-intro{position:static}
   .cpanel-intro p{max-width:none}
 }
+
+/* ---------- disclaimer treatment ---------- */
+.verdict-label{
+  display:block;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;margin-bottom:.35rem
+}
+.center.is-pick .verdict-label{color:var(--green)}
+.src{font-size:.62em;color:var(--ink-3);vertical-align:super;line-height:0;margin-left:.1em;cursor:help}
+
+.foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1.75rem;margin:0 0 1.75rem}
+.foot-cols h3{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.68rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:700;margin:0 0 .7rem
+}
+.foot-cols a{display:block;font-size:.9rem;color:var(--ink-2);text-decoration:none;padding:.22rem 0}
+.foot-cols a:hover{color:var(--green);text-decoration:underline}
+.foot-legal{
+  margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-size:.82rem;color:var(--ink-3)
+}

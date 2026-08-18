@@ -125,7 +125,22 @@ const foot = (up) => `
   <div class="wrap">
     <p class="foot-brand"><span class="mark">NJ</span> Guidance for choosing treatment in Northern New Jersey.</p>
     <p class="foot-note">Editorial scores updated ${REVIEWED} from provider-published information. This page is general information and is not medical or legal advice. If you are in crisis, call or text 988, or call 911.</p>
-    <p class="foot-note"><a href="${up}#list">All six centers</a> &middot; <a href="${up}compare/">Side by side</a> &middot; <a href="${up}how-we-review/">How we review</a></p>
+    <div class="foot-cols">
+      <div>
+        <h3>Explore</h3>
+        <a href="${up}#list">Compare centers</a>
+        <a href="${up}compare/">Side by side</a>
+        <a href="${up}#shortlist-tool">Where to start</a>
+        <a href="${up}#faq">Care compass</a>
+      </div>
+      <div>
+        <h3>Important</h3>
+        <a href="${up}how-we-review/">Our review approach</a>
+        <a href="${up}editorial-policy/">Editorial policy</a>
+        <a href="${up}privacy/">Privacy</a>
+      </div>
+    </div>
+    <p class="foot-legal">&copy; 2026 Northern New Jersey Rehab Guide &middot; Information, not medical advice.</p>
   </div>
 </footer>
 <script src="${up}script.js"></script>
@@ -164,10 +179,10 @@ const card = (c) => `
           ${thumb(c)}
           <p class="summary">${c.summary}</p>
           <dl class="spec">
-${Object.entries(c.spec).map(([k, v]) => `            <div><dt>${k}</dt><dd>${v}</dd></div>`).join("\n")}
+${Object.entries(c.spec).map(([k, v]) => `            <div><dt>${k}</dt><dd>${v}<sup class="src" title="Provider-reported">*</sup></dd></div>`).join("\n")}
           </dl>
           ${flagBlock(c)}
-          <p class="verdict">${c.verdict}</p>
+          <p class="verdict"><b class="verdict-label">${c.pick ? "Why we favor it" : "Our take"}</b>${c.verdict}</p>
           <div class="center-cta">
             <a class="btn btn-primary btn-sm" href="${c.slug}/">Read the full review</a>
             ${c.pick ? "" : `<a class="btn btn-ghost btn-sm" href="${PIVOT.slug}-vs-${c.slug}/">Compare with ${shortName(PIVOT)}</a>`}
@@ -212,9 +227,9 @@ ${featured(c.slug, "../")}
     ${thumb(c, "../")}
     <h2 class="section-title">At a glance</h2>
     <dl class="spec standalone">
-${Object.entries(c.spec).map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}</dd></div>`).join("\n")}
+${Object.entries(c.spec).map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}<sup class="src" title="Provider-reported">*</sup></dd></div>`).join("\n")}
     </dl>
-    <p class="verdict big">${c.verdict}</p>
+    <p class="verdict big"><b class="verdict-label">${c.pick ? "Why we favor it" : "Our take"}</b>${c.verdict}</p>
     ${fineprint}
   </div>
 </section>
@@ -688,6 +703,83 @@ CROSS.forEach(([x, y]) => {
   const b = centers.find((c) => c.slug === y);
   emit(`${a.slug}-vs-${b.slug}`, versusPage(a, b));
 });
+
+/* ------------------------------------------------ spine: policy pages */
+
+const policyPage = (title, desc, slug, body) => `${head(title, desc, "../", "")}
+<main id="main">
+${crumbs("../", [{ label: title }])}
+
+<section class="center-hero">
+  <div class="wrap">
+    <p class="pick-flag muted">Important</p>
+    <h1>${title}</h1>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap narrow">
+${body}
+  </div>
+</section>
+</main>
+${foot("../")}`;
+
+emit("editorial-policy", policyPage(
+  "Editorial policy",
+  "How this guide is written, what it does and does not claim, how errors are corrected, and how a center can request a correction.",
+  "editorial-policy",
+  `    <h2 class="section-title">What this guide is</h2>
+    <p>This is a comparison of six addiction and mental health treatment centers in Northern New Jersey, assessed on the information each one publishes about itself. It is written for people choosing a program, and for the families helping them.</p>
+
+    <h2 class="section-title">What we assess</h2>
+    <p>Every center is scored on the same four dimensions, weighted equally, using material published on that center's own website. The full method is on <a href="../how-we-review/">our review approach</a> page, including the point values and the verification tiers.</p>
+    <p>The ranking is produced by that method rather than authored. If the evidence changes, the order changes.</p>
+
+    <h2 class="section-title">What we do not claim</h2>
+    <ul class="plain">
+      <li>These scores are <b>not</b> measures of treatment outcomes, clinical quality or patient satisfaction. A center may deliver excellent care and publish very little about it.</li>
+      <li>They are <b>not</b> patient reviews. No review text is used anywhere in the scoring.</li>
+      <li>Nothing here is medical or legal advice, and nothing here is a guarantee about any center.</li>
+      <li>Inclusion does not imply endorsement, and exclusion does not imply criticism.</li>
+    </ul>
+
+    <h2 class="section-title">Facts, and opinion</h2>
+    <p>The specification rows on each page are facts reported by the provider, marked with an asterisk. The paragraph labelled <b>Our take</b> or <b>Why we favor it</b> is editorial opinion, and is labelled so you can tell the difference at a glance.</p>
+
+    <h2 class="section-title">Where a claim does not check out</h2>
+    <p>Where a center publishes a credential claim that cannot be verified against the body that would have issued it, we say so, quote the claim, and state plainly what we were and were not able to establish. We assess the claim, never the center's actual licensure, which we are not in a position to determine.</p>
+
+    <h2 class="section-title">Corrections</h2>
+    <p>If something here is wrong, or has since been corrected on a center's own site, we will update it. Details change and this guide is a snapshot. Every page carries the date its information was current.</p>
+
+    <h2 class="section-title">Independence</h2>
+    <p>This guide makes no claim to be independent of the centers it covers, and does not describe its rankings as unpaid or independently commissioned. The method, the point values and the underlying evidence are published in full so that you can check the reasoning yourself rather than take the ranking on trust.</p>
+
+    <p class="fineprint">Last reviewed August 2026.</p>`
+));
+
+emit("privacy", policyPage(
+  "Privacy",
+  "What this site collects, which is nothing, and what that means in practice.",
+  "privacy",
+  `    <h2 class="section-title">What we collect</h2>
+    <p>Nothing. This site has no forms, no sign-ups, no newsletter, no chat widget and no analytics. Nothing you do here is recorded, and nothing is sent anywhere.</p>
+
+    <h2 class="section-title">The care compass and the shortlist tool</h2>
+    <p>Both run entirely in your browser. Your selections are never transmitted, never stored, and disappear when you close the tab. That is deliberate: people research treatment at difficult moments, often on shared devices, and this page is designed so that using it leaves nothing behind.</p>
+
+    <h2 class="section-title">Fonts</h2>
+    <p>Typefaces are served by Google Fonts, which means Google receives the request for the font file. That is the only third party involved in loading this page.</p>
+
+    <h2 class="section-title">Links to treatment centers</h2>
+    <p>Links marked &ldquo;Visit center&rdquo; open that center's own website in a new tab. Once you are there, their privacy practices apply rather than ours, and they may well collect a great deal more than we do.</p>
+
+    <h2 class="section-title">Your privacy elsewhere</h2>
+    <p>If you are researching treatment on a device someone else can access, consider a private browsing window. If you are in crisis, calling or texting <a href="tel:988">988</a> is confidential.</p>
+
+    <p class="fineprint">Last reviewed August 2026.</p>`
+));
 
 emit("compare", comparePage());
 emit("how-we-review", methodologyPage());
