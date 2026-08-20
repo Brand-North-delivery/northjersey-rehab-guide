@@ -472,3 +472,4 @@ h3.sub:first-of-type{margin-top:0}
 }
 
 .geo-context{font-size:.92rem;color:var(--ink-3);margin:-.9rem 0 1.4rem;max-width:52ch}
+.cpanel-title{font-family:var(--serif);font-size:clamp(2rem,4.2vw,2.9rem);line-height:1.06;letter-spacing:-.02em;font-weight:600;margin:0 0 1.1rem;color:var(--ink);text-wrap:balance}

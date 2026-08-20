@@ -1,0 +1,19 @@
+name: verify
+on:
+  pull_request:
+  push:
+    branches: [master]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }   # lastmod derives from commit history
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci --omit=optional || npm install
+      - run: npm run build
+      - run: npm run audit:links
+      - run: npm run audit:metadata
+      - run: npm run a11y:css
+      - run: npm run a11y:alt

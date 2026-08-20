@@ -1,16 +1,24 @@
 {
-  "name": "northjersey-rehab-guide",
+  "name": "bergen-county-recovers",
   "version": "1.0.0",
   "description": "Bergen County Recovers - comparison guide to addiction treatment centers serving Bergen County, New Jersey.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node score.mjs && node build.mjs",
+    "gates": "python \"$BN/brand-north-aeo-stack/assets/run_stack_gates.py\" --root dist --html-dir dist --json",
+    "audit:links": "node scripts/audit-internal-links.mjs",
+    "audit:metadata": "node scripts/audit-article-metadata.mjs",
+    "a11y:css": "node scripts/a11y-lint-css.mjs",
+    "a11y:alt": "node scripts/a11y-assert-alt.mjs",
+    "a11y:axe": "node scripts/a11y-axe.mjs",
+    "verify": "npm run build && npm run audit:links && npm run audit:metadata && npm run a11y:css && npm run a11y:alt"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "playwright": "^1.62.1"
-  }
+  },
+  "private": true
 }

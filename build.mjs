@@ -89,13 +89,14 @@ const ogTags = (slug, title, desc) => {
 <meta name="twitter:image" content="${img}">` : ""}`;
 };
 
-const head = (title, desc, up, slug = "") => `<!doctype html>
+const head = (title, desc, up, slug = "", canonicalPath = "") => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${desc}">
+<link rel="canonical" href="${SITE}${canonicalPath}">
 ${ogTags(slug, title, desc)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,8 +156,10 @@ const crumbs = (up, trail) =>
 
 const fineprint = `<p class="fineprint">*Provider-reported information, current as of ${REVIEWED}; confirm before admission. Inclusion does not imply endorsement. Details can change.</p>`;
 
+const DIST = join(ROOT, "dist");
+
 const emit = (slug, html) => {
-  const dir = join(ROOT, slug);
+  const dir = join(DIST, slug);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html, "utf8");
   pages.push(slug);
@@ -200,7 +203,8 @@ const reviewPage = (c) => {
     `${shortName(c)} Review — ${c.city} | Bergen County Recovers`,
     `An editorial review of ${plain(c.name)} in ${c.city}: levels of care, licensing, accreditation, insurance, who it fits, and what to ask before you call.`,
     "../",
-    c.slug
+    c.slug,
+    `${c.slug}/`
   )}
 <main id="main">
 ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }])}
@@ -339,7 +343,9 @@ const alternativesPage = (c) => {
   return `${head(
     `Alternatives to ${shortName(c)} in Bergen County`,
     `Five alternatives to ${plain(c.name)} in Bergen and Passaic counties, with what each does differently and who it suits.`,
-    "../"
+    "../",
+    "",
+    `${c.slug}-alternatives/`
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Alternatives" }])}
@@ -400,7 +406,9 @@ const worthItPage = (c) => {
   return `${head(
     `Is ${shortName(c)} Worth It? An Honest Read`,
     `A straight assessment of ${plain(c.name)} in ${c.city}: what it does well, where it is thin, and who should look elsewhere.`,
-    "../"
+    "../",
+    "",
+    `is-${c.slug}-worth-it/`
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Is it worth it?" }])}
@@ -468,7 +476,9 @@ const versusPage = (a, b) => {
   return `${head(
     `${shortName(a)} vs ${shortName(b)} — Compared on Four Dimensions`,
     `${plain(a.name)} and ${plain(b.name)} compared on clinical clarity, medical support, program depth and continuing care, with who each one suits.`,
-    "../"
+    "../",
+    "",
+    `${slug}/`
   )}
 <main id="main">
 ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: `${shortName(a)} vs ${shortName(b)}` }])}
@@ -540,7 +550,9 @@ const costPage = (c) => {
   return `${head(
     `${shortName(c)} vs ${shortName(PIVOT)} — Cost and Insurance`,
     `How ${plain(c.name)} and ${plain(PIVOT.name)} compare on insurance, public coverage and what each publishes about cost.`,
-    "../"
+    "../",
+    "",
+    `${c.slug}-vs-${PIVOT.slug}-cost/`
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: `Cost vs ${shortName(PIVOT)}` }])}
@@ -604,7 +616,8 @@ const comparePage = () => `${head(
   `All Six Bergen County Rehabs, Side by Side`,
   `Every center in this guide compared on one screen: levels of care, licensing, accreditation, insurance and all four editorial dimensions.`,
   "../",
-  "compare"
+  "compare",
+  "compare/"
 )}
 <main id="main">
 ${crumbs("../", [{ label: "Side by side" }])}
@@ -646,7 +659,8 @@ const methodologyPage = () => `${head(
   `How We Review Treatment Centers`,
   `The scoring method behind this guide: four equally weighted dimensions applied to publicly available information, and what the scores deliberately do not measure.`,
   "../",
-  "how-we-review"
+  "how-we-review",
+  "how-we-review/"
 )}
 <main id="main">
 ${crumbs("../", [{ label: "How we review" }])}
@@ -710,7 +724,7 @@ CROSS.forEach(([x, y]) => {
 
 /* ------------------------------------------------ spine: policy pages */
 
-const policyPage = (title, desc, slug, body) => `${head(title, desc, "../", "")}
+const policyPage = (title, desc, slug, body) => `${head(title, desc, "../", "", `${slug}/`)}
 <main id="main">
 ${crumbs("../", [{ label: title }])}
 
@@ -803,7 +817,7 @@ const compassPanels = compass.categories
         aria-labelledby="ctab-${c.id}"${i === 0 ? "" : " hidden"}>
         <div class="cpanel-intro">
           <p class="ceyebrow">Your care compass &middot; ${c.label}</p>
-          <h2>Ten questions before you choose</h2>
+          <p class="cpanel-title" role="heading" aria-level="3">Ten questions before you choose</p>
           <p>${c.intro}</p>
         </div>
         <div class="cpanel-qs">
@@ -823,7 +837,7 @@ const inject = (src, tag, body) => {
 };
 
 /* hub cards */
-const indexPath = join(ROOT, "index.html");
+const indexPath = join(ROOT, "templates", "index.html");
 let index = readFileSync(indexPath, "utf8");
 const START = "<!-- centers:start -->";
 const END = "<!-- centers:end -->";
@@ -836,8 +850,19 @@ if (a === -1 || b === -1) {
 index = index.slice(0, a + START.length) + "\n" + centers.map(card).join("\n") + "\n      " + index.slice(b);
 index = inject(index, "compass:tabs", compassTabs);
 index = inject(index, "compass:panels", compassPanels);
-writeFileSync(indexPath, index, "utf8");
+mkdirSync(DIST, { recursive: true });
+writeFileSync(join(DIST, "index.html"), index, "utf8");
 
 console.log(`Built ${pages.length} pages:`);
 console.log(`  care compass: ${compass.categories.length} categories x ${compass.categories[0].questions.length} questions`);
 console.log(`  ${centers.length} reviews, ${RIVALS.length} alternatives, ${RIVALS.length} worth-it, ${RIVALS.length} head-to-head, ${RIVALS.length} cost, ${CROSS.length} cross, 2 spine`);
+
+/* ---------------------------------------------------- static assets */
+import { cpSync, existsSync } from "node:fs";
+for (const f of ["styles.css", "script.js", ".nojekyll"]) {
+  if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(DIST, f));
+}
+if (existsSync(join(ROOT, "assets"))) {
+  cpSync(join(ROOT, "assets"), join(DIST, "assets"), { recursive: true });
+}
+console.log("  static assets -> dist/");
