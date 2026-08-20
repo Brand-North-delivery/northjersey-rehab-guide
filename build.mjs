@@ -1,5 +1,5 @@
 /**
- * Static generator for the Northern New Jersey rehab comparison guide.
+ * Static generator for the Bergen County rehab comparison guide.
  *
  * Entity list  : data/centers.json  (6 centers)
  * Pivot        : Valley Spring Recovery Center
@@ -59,7 +59,7 @@ const pages = [];
 /* ---------------------------------------------------------------- chrome */
 
 const featuredMap = JSON.parse(readFileSync(join(ROOT, "assets/featured/manifest.json"), "utf8"));
-const SITE = "https://brand-north-delivery.github.io/northjersey-rehab-guide/";
+const SITE = "https://bergencountydrugrehabs.com/";
 
 /* SOP 9 — <picture>/<source> for the mobile breakpoint.
    SOP: alt = the text on the image, title = the same. */
@@ -106,7 +106,7 @@ ${ogTags(slug, title, desc)}
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="bar">
-    <a class="logo" href="${up}"><span class="mark">NJ</span> Rehab<span class="thin">Northern New Jersey</span></a>
+    <a class="logo" href="${up}"><span class="mark">BC</span> Recovers<span class="thin">Bergen County, NJ</span></a>
     <nav class="nav">
       <a href="${up}#list">Compare</a>
       <a href="${up}compare/">All six side by side</a>
@@ -117,13 +117,13 @@ ${ogTags(slug, title, desc)}
   </div>
 </header>
 <div class="crisis" role="note">
-  <strong>In immediate danger?</strong> Withdrawal from alcohol and benzodiazepines can be life-threatening. Call <a href="tel:911">911</a>, or call or text <a href="tel:988">988</a> for the Suicide &amp; Crisis Lifeline.
+  <strong>In immediate danger?</strong> Withdrawal from alcohol and benzodiazepines can be life-threatening. Call <a href="tel:911">911</a>, or call or text <a href="tel:988">988</a>. Bergen County runs a 24/7 addiction line on <a href="tel:2015892976">(201) 589-2976</a>.
 </div>`;
 
 const foot = (up) => `
 <footer class="site-foot">
   <div class="wrap">
-    <p class="foot-brand"><span class="mark">NJ</span> Guidance for choosing treatment in Northern New Jersey.</p>
+    <p class="foot-brand"><span class="mark">BC</span> Guidance for choosing treatment in Bergen County and northern New Jersey.</p>
     <p class="foot-note">Editorial scores updated ${REVIEWED} from provider-published information. This page is general information and is not medical or legal advice. If you are in crisis, call or text 988, or call 911.</p>
     <div class="foot-cols">
       <div>
@@ -140,7 +140,7 @@ const foot = (up) => `
         <a href="${up}privacy/">Privacy</a>
       </div>
     </div>
-    <p class="foot-legal">&copy; 2026 Northern New Jersey Rehab Guide &middot; Information, not medical advice.</p>
+    <p class="foot-legal">&copy; 2026 Bergen County Recovers &middot; Information, not medical advice.</p>
   </div>
 </footer>
 <script src="${up}script.js"></script>
@@ -197,7 +197,7 @@ const reviewPage = (c) => {
   const p = payers[c.slug];
   const others = centers.filter((o) => o.slug !== c.slug);
   return `${head(
-    `${shortName(c)} Review — ${c.city} | Northern NJ Rehab Guide`,
+    `${shortName(c)} Review — ${c.city} | Bergen County Recovers`,
     `An editorial review of ${plain(c.name)} in ${c.city}: levels of care, licensing, accreditation, insurance, who it fits, and what to ask before you call.`,
     "../",
     c.slug
@@ -213,6 +213,7 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }
       <div class="score big" aria-label="Editorial score ${c.score} out of 5"><b>${c.score}</b><span>/5</span></div>
     </div>
     <p class="lede-dark">${c.summary}</p>
+    <p class="geo-context">${c.city.replace(", NJ", "")} sits in ${c.county}${c.county === "Bergen County" ? "" : ", just outside Bergen"}, in northern New Jersey.</p>
     <div class="hero-cta">
       ${c.pick ? "" : `<a class="btn btn-primary" href="../${PIVOT.slug}-vs-${c.slug}/">Compare with ${shortName(PIVOT)}</a>`}
       <a class="btn btn-ghost" href="${c.site}" target="_blank" rel="noopener">Visit ${shortName(c)} &rarr;</a>
@@ -336,7 +337,7 @@ ${foot("../")}`;
 const alternativesPage = (c) => {
   const others = centers.filter((o) => o.slug !== c.slug);
   return `${head(
-    `Alternatives to ${shortName(c)} in Northern New Jersey`,
+    `Alternatives to ${shortName(c)} in Bergen County`,
     `Five alternatives to ${plain(c.name)} in Bergen and Passaic counties, with what each does differently and who it suits.`,
     "../"
   )}
@@ -347,7 +348,7 @@ ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Alternative
   <div class="wrap">
     <p class="pick-flag muted">Comparison</p>
     <h1>Alternatives to ${shortName(c)}</h1>
-    <p class="lede-dark">${shortName(c)} in ${c.city} scores ${c.score} out of 5 in this guide. If it is not the right fit, these five centers in Northern New Jersey cover the same region, and each does something ${shortName(c)} does not.</p>
+    <p class="lede-dark">${shortName(c)} in ${c.city} scores ${c.score} out of 5 in this guide. If it is not the right fit, these five centers in Bergen County cover the same region, and each does something ${shortName(c)} does not.</p>
     <a class="btn btn-ghost" href="../${c.slug}/">Read the ${shortName(c)} review &rarr;</a>
   </div>
 </section>
@@ -476,7 +477,7 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: `${short
   <div class="wrap">
     <p class="pick-flag muted">Head to head</p>
     <h1>${shortName(a)} <span class="vs">vs</span> ${shortName(b)}</h1>
-    <p class="lede-dark">Both serve Northern New Jersey. ${shortName(a)} is in ${a.city}, ${shortName(b)} in ${b.city}. They differ most in what happens when someone needs more than an outpatient schedule.</p>
+    <p class="lede-dark">Both serve Bergen County. ${shortName(a)} is in ${a.city}, ${shortName(b)} in ${b.city}. They differ most in what happens when someone needs more than an outpatient schedule.</p>
     <div class="vs-scores">
       <div><b>${a.score}</b><span>${shortName(a)}</span></div>
       <div><b>${b.score}</b><span>${shortName(b)}</span></div>
@@ -600,7 +601,7 @@ ${foot("../")}`;
 /* ----------------------------------------------------- 6. spine: compare */
 
 const comparePage = () => `${head(
-  `All Six Northern New Jersey Rehabs, Side by Side`,
+  `All Six Bergen County Rehabs, Side by Side`,
   `Every center in this guide compared on one screen: levels of care, licensing, accreditation, insurance and all four editorial dimensions.`,
   "../",
   "compare"
@@ -612,7 +613,7 @@ ${crumbs("../", [{ label: "Side by side" }])}
   <div class="wrap">
     <p class="pick-flag muted">The full table</p>
     <h1>All six, side by side</h1>
-    <p class="lede-dark">Every center on the same rows, so the comparison is not a matter of remembering what the last marketing page said.</p>
+    <p class="lede-dark">Every center serving Bergen County and the neighbouring North Jersey towns, on the same rows, so the comparison is not a matter of remembering what the last marketing page said.</p>
   </div>
 </section>
 ${featured("compare", "../")}
@@ -623,7 +624,8 @@ ${featured("compare", "../")}
       <table class="vs-table wide">
         <thead><tr><th></th>${centers.map((c) => `<th><a href="../${c.slug}/">${shortName(c)}</a>${c.pick ? ' <i class="tag-pick">pick</i>' : ""}</th>`).join("")}</tr></thead>
         <tbody>
-          <tr><th>Location</th>${centers.map((c) => `<td>${c.city}</td>`).join("")}</tr>
+          <tr><th>Town</th>${centers.map((c) => `<td>${c.city}</td>`).join("")}</tr>
+          <tr><th>County</th>${centers.map((c) => `<td>${c.county.replace(" County","")}${c.county === "Bergen County" ? "" : " <i class=\"outside\">outside Bergen</i>"}</td>`).join("")}</tr>
 ${Object.keys(PIVOT.spec).map((k) => `          <tr><th>${k}</th>${centers.map((c) => `<td>${c.spec[k] || "&mdash;"}</td>`).join("")}</tr>`).join("\n")}
           <tr><th>Medicaid / Medicare</th>${centers.map((c) => `<td>${payers[c.slug].public}</td>`).join("")}</tr>
 ${DIMS.map((d) => `          <tr><th>${d}</th>${centers.map((c) => `<td class="n">${c.scores[d][0]}</td>`).join("")}</tr>`).join("\n")}
@@ -653,7 +655,7 @@ ${crumbs("../", [{ label: "How we review" }])}
   <div class="wrap">
     <p class="pick-flag muted">Methodology</p>
     <h1>How we review</h1>
-    <p class="lede-dark">Every center is assessed on the same four dimensions, weighted equally at 25 percent each, using information the center itself publishes.</p>
+    <p class="lede-dark">Every center serving Bergen County and the surrounding northern New Jersey area is assessed on the same four dimensions, weighted equally at 25 percent each, using information the center itself publishes.</p>
   </div>
 </section>
 ${featured("how-we-review", "../")}
@@ -732,7 +734,7 @@ emit("editorial-policy", policyPage(
   "How this guide is written, what it does and does not claim, how errors are corrected, and how a center can request a correction.",
   "editorial-policy",
   `    <h2 class="section-title">What this guide is</h2>
-    <p>This is a comparison of six addiction and mental health treatment centers in Northern New Jersey, assessed on the information each one publishes about itself. It is written for people choosing a program, and for the families helping them.</p>
+    <p>This is a comparison of six addiction and mental health treatment centers in Bergen County, assessed on the information each one publishes about itself. It is written for people choosing a program, and for the families helping them.</p>
 
     <h2 class="section-title">What we assess</h2>
     <p>Every center is scored on the same four dimensions, weighted equally, using material published on that center's own website. The full method is on <a href="../how-we-review/">our review approach</a> page, including the point values and the verification tiers.</p>

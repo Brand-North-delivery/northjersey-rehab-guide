@@ -24,10 +24,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "assets", "featured")
 manifest = json.load(io.open(os.path.join(OUT, "manifest.json"), encoding="utf-8"))
 
-BRAND = "Northern New Jersey Rehab Guide"
-SITE = "https://brand-north-delivery.github.io/northjersey-rehab-guide/"
+BRAND = "Bergen County Recovers"
+SITE = "https://bergencountydrugrehabs.com/"
 RIGHTS = (
-    "This image belongs to the Northern New Jersey Rehab Guide. "
+    "This image belongs to Bergen County Recovers. "
     "Background photography is licensed stock; the composite, typography and "
     "brand mark are the property of the publisher."
 )
@@ -97,7 +97,7 @@ count = 0
 for slug, f in manifest.items():
     title = f["alt"]
     desc = f"{f['line1']}. {f['line2']}. Featured image for the {BRAND}, reviewed August 2026."
-    keywords = f"{f['line1']}, {f['line2']}, Northern New Jersey, addiction treatment, rehab comparison"
+    keywords = f"{f['line1']}, {f['line2']}, Bergen County, addiction treatment, rehab comparison"
     xmp = packet(title, desc, keywords)
     for key in ("desktop", "mobile"):
         p = os.path.join(ROOT, f[key])

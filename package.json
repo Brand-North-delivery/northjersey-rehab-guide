@@ -1,7 +1,7 @@
 {
   "name": "northjersey-rehab-guide",
   "version": "1.0.0",
-  "description": "Comparison guide to addiction treatment centers in Northern New Jersey.",
+  "description": "Bergen County Recovers - comparison guide to addiction treatment centers serving Bergen County, New Jersey.",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

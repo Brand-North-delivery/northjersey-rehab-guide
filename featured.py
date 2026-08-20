@@ -54,7 +54,7 @@ ANCHOR = {
 # page slug -> (background, line 1, line 2, filename stem)
 # Line 1 carries the entity. Line 2 expresses the topic without explaining it.
 PAGES = [
-    ("index",                            "woodland", "Treatment in Northern New Jersey",  "Six centers, compared",              "treatment-northern-new-jersey"),
+    ("index",                            "woodland", "Bergen County Drug Rehabs",   "Six centers, compared on evidence",  "bergen-county-drug-rehabs"),
     ("valley-spring-recovery-center",    "river",    "Valley Spring Recovery Center",     "Norwood, Bergen County",             "valley-spring-recovery-center"),
     ("bluecrest-recovery-center",        "cascade",  "BlueCrest Recovery Center",         "Woodland Park, Passaic County",      "bluecrest-recovery-center"),
     ("ikon-recovery-centers",            "woodland", "IKON Recovery Centers",             "Saddle Brook, Bergen County",        "ikon-recovery-centers"),
@@ -102,10 +102,10 @@ def draw_page(bg_key, line1, line2, stem):
     # --- SOP 6: brand mark, fixed position, readable contrast
     d.ellipse([64, 60, 128, 124], fill=(31, 79, 63))
     fm = ImageFont.truetype(SANS_B, 24)
-    tb = d.textbbox((0, 0), "NJ", font=fm)
-    d.text((96 - (tb[2] - tb[0]) / 2, 92 - (tb[3] - tb[1]) / 2 - tb[1]), "NJ", font=fm, fill=(255, 255, 255))
+    tb = d.textbbox((0, 0), "BC", font=fm)
+    d.text((96 - (tb[2] - tb[0]) / 2, 92 - (tb[3] - tb[1]) / 2 - tb[1]), "BC", font=fm, fill=(255, 255, 255))
     fb = ImageFont.truetype(SANS_B, 19)
-    d.text((144, 82), "REHAB  ·  NORTHERN NEW JERSEY", font=fb, fill=(226, 236, 230))
+    d.text((144, 82), "BERGEN COUNTY RECOVERS", font=fb, fill=(226, 236, 230))
 
     # --- SOP 2 & 4: entity centered, two lines, expresses rather than explains
     f1 = ImageFont.truetype(SERIF_B, 78)

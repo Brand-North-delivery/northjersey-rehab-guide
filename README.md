@@ -1,1 +1,1 @@
-Comparison guide to addiction treatment centers in Northern New Jersey.
+Comparison guide to addiction treatment centers in Bergen County.

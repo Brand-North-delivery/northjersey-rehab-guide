@@ -1,0 +1,225 @@
+{
+  "_comment": "Bergen County evidence base. Every figure is from a named primary source with its own reporting period. Nothing here is modelled, projected or rounded. Where two sources measure different things (county of residence vs treatment site; suspected overdose vs confirmed fatality) they are kept separate rather than blended.",
+
+  "sources": {
+    "dmhas2024": {
+      "name": "NJ Department of Human Services, Division of Mental Health and Addiction Services",
+      "title": "New Jersey Drug and Alcohol Use Treatment Substance Use Overview 2024 — Bergen County",
+      "url": "https://nj.gov/humanservices/dmhas/documents/pdf/statistical/substance-abuse-overview/2024/Ber.pdf",
+      "period": "Calendar year 2024",
+      "published": "January 2026",
+      "basis": "March 2025 NJSAMS download",
+      "note": "Reported through the New Jersey Substance Abuse Monitoring System by licensed treatment providers."
+    },
+    "bcpo": {
+      "name": "Bergen County Prosecutor's Office",
+      "title": "Opioid Response",
+      "url": "https://www.bcpo.net/opioid-response/",
+      "period": "2017 through 2025",
+      "note": "Suspected overdoses and law-enforcement naloxone deployments are BCPO counts. Fatality figures for 2023 onward are pending final reports from the NJ Office of the Chief State Medical Examiner."
+    }
+  },
+
+  "statewide2024": {
+    "admissions": 81217,
+    "discharges": 78797,
+    "source": "dmhas2024"
+  },
+
+  "residents2024": {
+    "_scope": "Bergen County residents admitted anywhere in New Jersey, CY2024",
+    "totalAdmissions": 2890,
+    "unduplicatedClients": 1878,
+    "primaryDrug": [
+      ["Alcohol", 1433, 50],
+      ["Heroin", 588, 20],
+      ["Marijuana / synthetic cannabinoids", 305, 11],
+      ["Cocaine", 225, 8],
+      ["Other opiates", 174, 6],
+      ["Methamphetamines / other stimulants", 75, 3],
+      ["Other drugs", 87, 3]
+    ],
+    "age": [
+      ["Under 18", 110, 4],
+      ["18-21", 89, 3],
+      ["22-24", 96, 3],
+      ["25-29", 390, 13],
+      ["30-34", 478, 17],
+      ["35-44", 829, 29],
+      ["45-54", 490, 17],
+      ["55 and over", 408, 14]
+    ],
+    "sex": { "male": [2099, 73], "female": [777, 27] },
+    "insurance": {
+      "_note": "Totals exceed 100% because multiple responses are permitted.",
+      "medicaid": [1767, 61],
+      "privateInsurance": [665, 23],
+      "noInsurance": [656, 23],
+      "medicare": [73, 3],
+      "other": [38, 1]
+    },
+    "employment": {
+      "notInLaborForce": [1146, 40],
+      "employedFullOrPartTime": [992, 34],
+      "unemployed": [618, 21],
+      "student": [132, 5]
+    },
+    "livingArrangement": {
+      "homeless": [300, 10],
+      "dependentOrSupervisedLiving": [494, 17]
+    },
+    "referralSource": [
+      ["Self-referral", 1358, 47],
+      ["Corrections-related programs", 426, 15],
+      ["Addiction services program", 337, 12],
+      ["Intoxicated Drivers Resource Center", 313, 11],
+      ["Recovery court", 158, 5],
+      ["Child protection / family court", 77, 3],
+      ["Family or friend", 54, 2],
+      ["Reach NJ", 54, 2],
+      ["Mental health", 41, 1],
+      ["Welfare / social service agency", 23, 1]
+    ],
+    "medicationAssistedTherapyPlanned": {
+      "buprenorphine": [201, 7],
+      "methadone": [197, 7],
+      "vivitrol": [87, 3],
+      "psychotropic": [383, 13]
+    },
+    "specialPopulations": {
+      "drivingUnderTheInfluence": [517, 18],
+      "childProtectionOrChildWelfare": [97, 3],
+      "veteran": [45, 2],
+      "pregnantWomen": [10, 0]
+    },
+    "readmission": {
+      "oneAdmission": [1209, 64],
+      "twoAdmissions": [366, 19],
+      "threeOrMore": [303, 16]
+    },
+    "federalPovertyLevel0to133": [2159, 86],
+    "treatedInCountyOfResidence": [1345, 47],
+    "topReceivingCountiesOutsideBergen": [
+      ["Passaic", 422, 15],
+      ["Monmouth", 243, 8],
+      ["Essex", 174, 6],
+      ["Hudson", 165, 6],
+      ["Middlesex", 158, 5],
+      ["Atlantic", 134, 5]
+    ],
+    "source": "dmhas2024"
+  },
+
+  "treatmentSitesInBergen2024": {
+    "_scope": "Admissions to treatment sites physically located in Bergen County, CY2024, regardless of where the client lives",
+    "primaryDrug": [
+      ["Alcohol", 986, 50],
+      ["Marijuana / synthetic cannabinoids", 420, 21],
+      ["Heroin", 193, 10],
+      ["Cocaine / crack", 149, 8],
+      ["Other opiates", 101, 5],
+      ["Methamphetamines / other stimulants", 68, 3],
+      ["Other drugs", 51, 3]
+    ],
+    "employment": {
+      "employedFullOrPartTime": [827, 42],
+      "unemployed": [450, 23],
+      "notInLaborForce": [430, 22],
+      "student": [259, 13]
+    },
+    "livingArrangement": { "homeless": [58, 3], "dependentOrSupervisedLiving": [245, 12] },
+    "source": "dmhas2024"
+  },
+
+  "overdoseTrend": {
+    "_columns": ["year", "suspectedOverdoses", "naloxoneDeployments", "naloxoneSaves", "drugRelatedFatalities"],
+    "_note": "Fatality counts from 2023 onward are pending final NJ Office of the Chief State Medical Examiner reports.",
+    "rows": [
+      [2025, 530, 187, 118, 79],
+      [2024, 536, 236, 158, 93],
+      [2023, 688, 316, 217, 129],
+      [2022, 710, 376, 256, 149],
+      [2021, 743, 368, 255, 189],
+      [2020, 681, 325, 233, 164],
+      [2019, 657, 388, 274, 138],
+      [2018, 583, 352, 255, 142],
+      [2017, 504, 325, 245, 129]
+    ],
+    "source": "bcpo"
+  },
+
+  "countyPrograms": [
+    {
+      "name": "Bergen County 24/7 addiction hotline",
+      "detail": "Peer recovery support and treatment connection, operated with The Center for Alcohol and Drug Resources, part of Children's Aid and Family Services.",
+      "phone": "(201) 589-2976",
+      "text": "#StoptheODs",
+      "source": "bcpo"
+    },
+    {
+      "name": "Operation Helping Hand",
+      "detail": "Law enforcement, healthcare providers and recovery specialists conduct outreach to people at risk, coordinated with the Bergen County Division of Mental Health and Addiction Services.",
+      "source": "bcpo"
+    },
+    {
+      "name": "Bergen County Municipal Recovery Court",
+      "detail": "Piloted in Fair Lawn in 2018 and expanded county-wide in early 2023. Diverts defendants facing possession, shoplifting or addiction-related charges into treatment; charges are dismissed after six months of compliance.",
+      "source": "bcpo"
+    },
+    {
+      "name": "Overdose Fatality Review Team",
+      "detail": "Established 2021 with the Bergen County Department of Health Services. Conducts monthly reviews of overdose deaths.",
+      "source": "bcpo"
+    },
+    {
+      "name": "Law enforcement naloxone",
+      "detail": "All Bergen County law enforcement officers have carried naloxone since 2014.",
+      "source": "bcpo"
+    }
+  ],
+
+  "headlineFindings": [
+    {
+      "id": "leave-county",
+      "claim": "More than half of Bergen County residents entering treatment are treated outside the county.",
+      "figures": "1,345 of 2,890 admissions (47%) were treated in the county of residence in CY2024. Passaic County received 422 (15%).",
+      "source": "dmhas2024",
+      "whyItMatters": "Local search assumes local treatment. For most Bergen residents that assumption does not hold, and the guide should say where people actually go."
+    },
+    {
+      "id": "medicaid",
+      "claim": "Medicaid is the single largest payer for Bergen County treatment admissions.",
+      "figures": "1,767 of 2,890 admissions (61%) reported Medicaid coverage; 656 (23%) reported no insurance at all.",
+      "source": "dmhas2024",
+      "whyItMatters": "Most private treatment centers marketing to Bergen County do not accept Medicaid. The payer profile of the people actually entering treatment is very different from the payer profile these centers advertise to."
+    },
+    {
+      "id": "alcohol-first",
+      "claim": "Alcohol is the primary drug in half of all Bergen County treatment admissions.",
+      "figures": "1,433 of 2,890 admissions (50%), against heroin at 588 (20%).",
+      "source": "dmhas2024",
+      "whyItMatters": "Coverage of the opioid crisis is heavier than coverage of alcohol, while alcohol accounts for more admissions than every opioid combined."
+    },
+    {
+      "id": "overdose-decline",
+      "claim": "Suspected overdoses in Bergen County have fallen 29% from their 2021 peak.",
+      "figures": "743 suspected overdoses in 2021 against 530 in 2025. Drug-related fatalities fell from 189 to 79 over the same period, though figures from 2023 onward remain provisional.",
+      "source": "bcpo",
+      "whyItMatters": "The trend is genuinely improving and almost nothing published locally says so."
+    },
+    {
+      "id": "self-referral",
+      "claim": "Nearly half of Bergen County admissions are self-referrals.",
+      "figures": "1,358 of 2,890 (47%). Corrections-related programs account for 426 (15%) and the Intoxicated Drivers Resource Center for a further 313 (11%).",
+      "source": "dmhas2024",
+      "whyItMatters": "Most people arrive without a clinician guiding the choice, which is precisely the gap a comparison guide fills."
+    },
+    {
+      "id": "readmission",
+      "claim": "A third of Bergen County clients are admitted more than once in a year.",
+      "figures": "Of 1,878 unduplicated clients, 366 (19%) had two admissions and 303 (16%) had three or more.",
+      "source": "dmhas2024",
+      "whyItMatters": "Continuity of care and what happens after discharge are not secondary questions for this population."
+    }
+  ]
+}
