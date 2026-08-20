@@ -19,6 +19,7 @@ const payers = JSON.parse(readFileSync(join(ROOT, "data/payers.json"), "utf8"));
 const verification = JSON.parse(readFileSync(join(ROOT, "data/verification.json"), "utf8"));
 const scores = JSON.parse(readFileSync(join(ROOT, "data/scores.json"), "utf8"));
 const compass = JSON.parse(readFileSync(join(ROOT, "data/compass.json"), "utf8"));
+const process_ = JSON.parse(readFileSync(join(ROOT, "data/process.json"), "utf8"));
 
 /* Rank and score come from the algorithm, not from the editorial file. If the
    two ever disagree, the algorithm wins and the methodology page stays true. */
@@ -141,6 +142,7 @@ const foot = (up) => `
         <h3>Important</h3>
         <a href="${up}how-we-review/">Our review approach</a>
         <a href="${up}editorial-policy/">Editorial policy</a>
+        <a href="${up}editorial-process/">How we publish</a>
         <a href="${up}privacy/">Privacy</a>
         <a href="${up}sitemap/">Sitemap</a>
         <a href="${up}entitymap/">EntityMap</a>
@@ -862,6 +864,38 @@ emit("privacy", policyPage(
     <p>If you are researching treatment on a device someone else can access, consider a private browsing window. If you are in crisis, calling or texting <a href="tel:988">988</a> is confidential.</p>
 
     <p class="fineprint">Last reviewed August 2026.</p>`
+));
+
+emit("editorial-process", policyPage(
+  "How we publish",
+  "The six stages every page on this guide passes through: human research, verifiable facts, outline, human review, editing, and automated fact validation.",
+  "editorial-process",
+  `    <p class="lede-dark">${process_.author.experienceClaim} Articles are attributed to <b>${process_.author.name}</b> rather than to an individual byline, and this page is published in place of one.</p>
+
+    <div class="claim-flag">
+      <p class="claim-flag-head">Why an organization rather than a person</p>
+      <p>A named clinical author is a stronger signal than an organizational one, and we are not going to manufacture a byline to obtain it. What an organization owes a reader instead is the process, in enough detail that each stage can be checked. Every stage below names the artifact it produces.</p>
+    </div>
+
+    <h2 class="section-title">The six stages</h2>
+    <div class="stages">
+${process_.stages.map((s) => `      <div class="stage">
+        <div class="stage-n">${s.n}</div>
+        <div class="stage-body">
+          <h3>${s.name}</h3>
+          <p>${s.what}</p>
+          <p class="stage-meta"><b>Produces:</b> ${s.artifact}</p>
+          <p class="stage-why">${s.why}</p>
+        </div>
+      </div>`).join("\n")}
+    </div>
+
+    <h2 class="section-title">What we commit to</h2>
+    <ul class="plain">
+${process_.commitments.map((c) => `      <li>${c}</li>`).join("\n")}
+    </ul>
+
+    <p class="fineprint">Process last reviewed ${REVIEWED}. The experience claim above is a statement by the publisher, recorded ${process_.author.experienceSource.date}.</p>`
 ));
 
 emit("compare", comparePage());

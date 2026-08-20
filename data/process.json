@@ -1,0 +1,68 @@
+{
+  "_comment": "The editorial process, published because the organization is the author. A guide that attributes to an organization rather than a named individual owes the reader the process instead — otherwise 'our team' is an assertion with nothing behind it. Every stage here describes what actually happens, and each names its artifact so a reader can check that the stage ran.",
+
+  "author": {
+    "name": "Bergen County Recovers",
+    "type": "Organization",
+    "experienceClaim": "The editorial team has more than 40 years of combined experience in behavioral health.",
+    "experienceSource": {
+      "type": "interview",
+      "who": "George Kocher",
+      "role": "Publisher",
+      "date": "2026-08-19",
+      "status": "verified"
+    },
+    "note": "Articles are attributed to the organization rather than to an individual byline. The process below is published in place of a personal byline, and every stage names the artifact it produces."
+  },
+
+  "stages": [
+    {
+      "n": "01",
+      "name": "Human research",
+      "what": "A person reads the primary sources directly — state licensing records, county prosecutor data, NJ DMHAS statistical reports, and each center's own published material. No figure enters the pipeline from a summary, an aggregator or a competitor's page.",
+      "artifact": "Source URLs with the date each was read",
+      "why": "Aggregators in this industry are measurably unreliable. A published audit of 697 addiction treatment practices across ten directories found a mean exact accuracy of 56 percent."
+    },
+    {
+      "n": "02",
+      "name": "Verifiable facts",
+      "what": "Every claim becomes a record carrying its value, its source, who verified it, the date, the method used, and a date by which it must be rechecked. Claims that cannot be traced to a primary source do not become records, and what does not become a record does not reach a page.",
+      "artifact": "An internal facts record, one entry per fact",
+      "why": "A number on a page with no record behind it cannot be corrected, because nobody knows where it came from."
+    },
+    {
+      "n": "03",
+      "name": "Outline",
+      "what": "The page structure is decided before any prose is written — which questions it answers, in what order, which facts each section carries, and which pages it links to. Sections that have no verified fact to carry are cut at this stage rather than padded later.",
+      "artifact": "A per-page outline naming the fact behind each section",
+      "why": "Structural decisions made during writing get made to suit the sentence rather than the reader."
+    },
+    {
+      "n": "04",
+      "name": "Human review",
+      "what": "A person reads the outline against the evidence and asks what is missing, what overstates its source, and what a reader in difficulty would still not know after reading it. Crisis and safety content is read specifically for whether the emergency route appears before anything commercial.",
+      "artifact": "Review notes, and the outline revised against them",
+      "why": "The failure mode of generated content is being complete and useless at the same time."
+    },
+    {
+      "n": "05",
+      "name": "Editing",
+      "what": "Prose is written and then cut. Hedging is removed or replaced with the condition that makes the claim true. Figures are never typed into prose — they are references resolved from the evidence base at build time, with the attribution attached automatically.",
+      "artifact": "The published page",
+      "why": "A typed number can drift from its source. A resolved reference cannot."
+    },
+    {
+      "n": "06",
+      "name": "Fact validation",
+      "what": "Automated gates run before anything publishes: every internal link resolves, every review date is real and follows its publication date, every image carries alt text, and every figure traces to a record marked verified. A record that is pending or contradicted blocks the build rather than printing a caveat.",
+      "artifact": "Gate output, exit zero required",
+      "why": "A gate that can be skipped is not a gate. These fail the build."
+    }
+  ],
+
+  "commitments": [
+    "Corrections are made when something is wrong, and the page carries the date its information was current.",
+    "Where a center's claim cannot be verified, the guide says what it could and could not establish rather than implying the stronger reading.",
+    "This guide makes no claim to be independent of the centers it covers. The method and the evidence are published so the reasoning can be checked rather than trusted."
+  ]
+}

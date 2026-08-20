@@ -36,6 +36,12 @@ export const organizationNode = (reviewed) => ({
   },
   publishingPrinciples: url("editorial-policy/"),
   actionableFeedbackPolicy: url("editorial-policy/"),
+  // The organization IS the author, so the credential and the process it
+  // follows have to be machine-readable, not just prose on a page.
+  knowsAbout: [
+    "addiction treatment", "substance use disorder", "behavioral health",
+    "Bergen County, New Jersey", "treatment center comparison",
+  ],
   dateModified: reviewed,
 });
 
@@ -106,6 +112,8 @@ export const collectionNode = (path, name, description, centers) => ({
   name,
   description,
   isPartOf: orgRef,
+  author: orgRef,
+  publisher: orgRef,
   mainEntity: {
     "@type": "ItemList",
     numberOfItems: centers.length,
@@ -125,8 +133,11 @@ export const webPageNode = (path, name, description, reviewed) => ({
   name,
   description,
   isPartOf: orgRef,
+  author: orgRef,
   publisher: orgRef,
+  reviewedBy: orgRef,
   dateModified: reviewed,
+  lastReviewed: reviewed,
 });
 
 /** Wrap nodes in one @graph and emit the script tag. */

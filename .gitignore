@@ -2,3 +2,6 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# internal ledger — has no URL, must never be served
+facts-record.yaml

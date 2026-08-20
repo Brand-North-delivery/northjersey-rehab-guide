@@ -473,3 +473,14 @@ h3.sub:first-of-type{margin-top:0}
 
 .geo-context{font-size:.92rem;color:var(--ink-3);margin:-.9rem 0 1.4rem;max-width:52ch}
 .cpanel-title{font-family:var(--serif);font-size:clamp(2rem,4.2vw,2.9rem);line-height:1.06;letter-spacing:-.02em;font-weight:600;margin:0 0 1.1rem;color:var(--ink);text-wrap:balance}
+
+/* editorial process stages */
+.stages{display:grid;gap:1.1rem;margin:1.5rem 0 2rem}
+.stage{display:grid;grid-template-columns:3rem 1fr;gap:0 1.1rem;background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow)}
+.band.alt .stage{background:var(--paper)}
+.stage-n{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:1.15rem;font-weight:650;color:var(--green);font-variant-numeric:tabular-nums}
+.stage-body h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .5rem;color:var(--ink)}
+.stage-body p{margin:0 0 .6rem;font-size:.96rem;color:var(--ink-2);max-width:none}
+.stage-meta{font-size:.88rem !important;color:var(--ink-3) !important}
+.stage-meta b{color:var(--ink-2)}
+.stage-why{font-size:.9rem !important;font-style:italic;color:var(--ink-3) !important;margin-bottom:0 !important}
