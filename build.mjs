@@ -13,6 +13,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as S from "./schema.mjs";
 import { loadArticles, assertShape, articleBody, resolveRefs } from "./articles.mjs";
+import { SITUATIONS, fitProfile, disclosures, bestFor } from "./fit.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const raw = JSON.parse(readFileSync(join(ROOT, "data/centers.json"), "utf8"));
@@ -22,6 +23,26 @@ const scores = JSON.parse(readFileSync(join(ROOT, "data/scores.json"), "utf8"));
 const compass = JSON.parse(readFileSync(join(ROOT, "data/compass.json"), "utf8"));
 const process_ = JSON.parse(readFileSync(join(ROOT, "data/process.json"), "utf8"));
 const bergen = JSON.parse(readFileSync(join(ROOT, "data/bergen.json"), "utf8"));
+const evidence = JSON.parse(readFileSync(join(ROOT, "data/evidence.json"), "utf8"));
+
+/* Situation fit and disclosure checklist, replacing the numeric score. */
+const fitBlock = (c) => {
+  const rows = fitProfile(c.slug, evidence, verification, centers);
+  return `<div class="fit-grid-2">
+${rows.map((f) => `      <div class="fit-row is-${f.verdict}">
+        <span class="fit-v">${f.verdict === "strong" ? "Strong fit" : f.verdict === "possible" ? "Possible" : f.verdict === "no" ? "Not a fit" : "Not stated"}</span>
+        <span class="fit-l">${f.label}</span>
+        <span class="fit-r">${f.reason}</span>
+      </div>`).join("\n")}
+    </div>`;
+};
+
+const discBlock = (c) => {
+  const d = disclosures(c.slug, evidence, verification);
+  return `<ul class="disc">
+${d.map((x) => `      <li class="${x.published ? "yes" : "no"}"><span aria-hidden="true">${x.published ? "\u2713" : "\u2014"}</span> ${x.label}<span class="sr-only">: ${x.published ? "published" : "not published"}</span></li>`).join("\n")}
+    </ul>`;
+};
 
 /* Rank and score come from the algorithm, not from the editorial file. If the
    two ever disagree, the algorithm wins and the methodology page stays true. */
@@ -57,7 +78,7 @@ const thumb = (c, up = "") => {
 const RIVALS = centers.filter((c) => !c.pick);
 const DIMS = ["Clinical clarity", "Medical support", "Program depth", "Continuing care"];
 
-const plain = (s) => s.replace(/&mdash;/g, "—").replace(/&rsquo;/g, "’");
+const plain = (s) => s.replace(/&mdash;/g, "\u2014").replace(/&rsquo;/g, "’");
 const shortName = (c) => plain(c.name).split(" — ")[0];
 const pages = [];
 
@@ -186,14 +207,13 @@ const card = (c) => `
               <h3><a href="${c.slug}/">${c.name}</a></h3>
               <p class="place">${c.city} &middot; ${c.county}</p>
             </div>
-            <div class="score" aria-label="Editorial score ${c.score} out of 5"><b>${c.score}</b><span>/5</span></div>
+            ${c.pick ? `<div class="pick-badge">Editor&rsquo;s pick</div>` : ""}
           </div>
           ${thumb(c)}
           <p class="summary">${c.summary}</p>
           <dl class="spec">
 ${Object.entries(c.spec).map(([k, v]) => `            <div><dt>${k}</dt><dd>${v}<sup class="src" title="Provider-reported">*</sup></dd></div>`).join("\n")}
           </dl>
-          ${flagBlock(c)}
           <p class="verdict"><b class="verdict-label">${c.pick ? "Why we favor it" : "Our take"}</b>${c.verdict}</p>
           <div class="center-cta">
             <a class="btn btn-primary btn-sm" href="${c.slug}/">Read the full review</a>
@@ -252,10 +272,9 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }
 
 <section class="center-hero${c.pick ? " is-pick" : ""}">
   <div class="wrap">
-    <p class="pick-flag${c.pick ? "" : " muted"}">${c.pick ? `Editor&rsquo;s pick &middot; ranked ${c.rank} of ${centers.length}` : `Ranked ${c.rank} of ${centers.length}`}</p>
+    <p class="pick-flag${c.pick ? "" : " muted"}">${c.pick ? "Editor&rsquo;s pick" : `One of ${centers.length} centers serving Bergen County`}</p>
     <div class="center-hero-top">
       <div><h1>${c.name}</h1><p class="place">${c.city} &middot; ${c.county}</p></div>
-      <div class="score big" aria-label="Editorial score ${c.score} out of 5"><b>${c.score}</b><span>/5</span></div>
     </div>
     <p class="lede-dark">${c.summary}</p>
     <p class="geo-context">${c.city.replace(", NJ", "")} sits in ${c.county}${c.county === "Bergen County" ? "" : ", just outside Bergen"}, in northern New Jersey.</p>
@@ -282,7 +301,7 @@ ${Object.entries(c.spec).map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}<sup c
   </div>
 </section>
 ${
-  !c.verify.flags?.length
+  true
     ? ""
     : `
 <section class="band flagged">
@@ -312,6 +331,18 @@ ${
 }
 
 <section class="band alt">
+  <div class="wrap narrow">
+    <h2 class="section-title">Who this fits</h2>
+    <p class="section-lede">Assessed against the six situations most Bergen County admissions fall into. A center can be the strongest option for one and the wrong option for another. <a href="../how-we-review/">How this is decided &rarr;</a></p>
+    ${fitBlock(c)}
+
+    <h2 class="section-title" style="margin-top:2.6rem">What they publish</h2>
+    <p class="section-lede">The things a family can check before making a phone call.</p>
+    ${discBlock(c)}
+  </div>
+</section>
+
+<section class="band" hidden>
   <div class="wrap narrow">
     <h2 class="section-title">How it scores</h2>
     <p class="section-lede">Four dimensions, weighted equally. These measure the clarity and breadth of publicly available information&mdash;not treatment outcomes or patient satisfaction. <a href="../how-we-review/">How we review &rarr;</a></p>
@@ -423,7 +454,7 @@ ${c.notFits.map((f) => `      <li>${f}</li>`).join("\n")}
 ${others.map((o) => `      <article class="alt-item${o.pick ? " is-pick" : ""}">
         <div class="alt-head">
           <div><h3><a href="../${o.slug}/">${o.name}</a></h3><p class="place">${o.city} &middot; ${o.county}</p></div>
-          <div class="score" aria-label="Editorial score ${o.score} out of 5"><b>${o.score}</b><span>/5</span></div>
+          ${o.pick ? `<div class="pick-badge">Editor&rsquo;s pick</div>` : ""}
         </div>
         <p>${o.summary}</p>
         <p class="alt-why"><b>Consider it instead if:</b> ${o.fits[0].charAt(0).toLowerCase() + o.fits[0].slice(1)}.</p>
@@ -469,9 +500,8 @@ ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Is it worth
     <p class="pick-flag muted">Assessment &middot; ranked ${c.rank} of ${centers.length}</p>
     <div class="center-hero-top">
       <div><h1>Is ${shortName(c)} worth it?</h1><p class="place">${c.city} &middot; ${c.county}</p></div>
-      <div class="score big" aria-label="Editorial score ${c.score} out of 5"><b>${c.score}</b><span>/5</span></div>
     </div>
-    <p class="lede-dark">Short answer: it depends on whether you need what it is strongest at. ${shortName(c)} scores highest on <b>${best.toLowerCase()}</b> and lowest on <b>${worst.toLowerCase()}</b>.</p>
+    <p class="lede-dark">It depends entirely on which situation you are in. ${shortName(c)} is a strong fit for some and not for others, and the honest answer is the list below rather than a verdict.</p>
   </div>
 </section>
 
@@ -544,10 +574,7 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: `${short
     <p class="pick-flag muted">Head to head</p>
     <h1>${shortName(a)} <span class="vs">vs</span> ${shortName(b)}</h1>
     <p class="lede-dark">Both serve Bergen County. ${shortName(a)} is in ${a.city}, ${shortName(b)} in ${b.city}. They differ most in what happens when someone needs more than an outpatient schedule.</p>
-    <div class="vs-scores">
-      <div><b>${a.score}</b><span>${shortName(a)}</span></div>
-      <div><b>${b.score}</b><span>${shortName(b)}</span></div>
-    </div>
+    <p class="section-lede">Compared on the six situations most Bergen County admissions fall into, rather than ranked against each other.</p>
   </div>
 </section>
 
@@ -586,11 +613,11 @@ ${b.fits.slice(0, 3).map((f) => `        <li>${f}</li>`).join("\n")}
 
 <section class="band">
   <div class="wrap narrow">
-    <h2 class="section-title">Where each one is thin</h2>
+    <h2 class="section-title">What each does not cover</h2>
     <h3 class="sub">${shortName(a)}</h3>
-    <p>${a.scores[DIMS.reduce((x, d) => (parseFloat(a.scores[d][0]) < parseFloat(a.scores[x][0]) ? d : x), DIMS[0])][1]}</p>
+    <ul class="plain">${fitProfile(a.slug, evidence, verification, centers).filter((f) => f.verdict === "no" || f.verdict === "unknown").map((f) => `<li><b>${f.label}:</b> ${f.reason}</li>`).join("") || "<li>Fits or may fit every situation assessed.</li>"}</ul>
     <h3 class="sub">${shortName(b)}</h3>
-    <p>${b.scores[DIMS.reduce((x, d) => (parseFloat(b.scores[d][0]) < parseFloat(b.scores[x][0]) ? d : x), DIMS[0])][1]}</p>
+    <ul class="plain">${fitProfile(b.slug, evidence, verification, centers).filter((f) => f.verdict === "no" || f.verdict === "unknown").map((f) => `<li><b>${f.label}:</b> ${f.reason}</li>`).join("") || "<li>Fits or may fit every situation assessed.</li>"}</ul>
     <p class="back"><a href="../compare/">All six side by side &rarr;</a></p>
   </div>
 </section>
@@ -741,25 +768,39 @@ ${crumbs("../", [{ label: "How we review" }])}
   <div class="wrap">
     <p class="pick-flag muted">Methodology</p>
     <h1>How we review</h1>
-    <p class="lede-dark">Every center serving Bergen County and the surrounding northern New Jersey area is assessed on the same four dimensions, weighted equally at 25 percent each, using information the center itself publishes.</p>
+    <p class="lede-dark">We do not rank these centers from first to last. Each is assessed as a fit for six situations, using information the center itself publishes.</p>
   </div>
 </section>
 ${featured("how-we-review", "../")}
 
 <section class="band">
   <div class="wrap narrow">
-    <div class="rubric">
-      <div class="rub"><h3>Clinical clarity</h3><p>Are the programs, schedules and clinical staffing described specifically enough to know what you are buying?</p></div>
-      <div class="rub"><h3>Medical support</h3><p>What medical and psychiatric services are named, and are they delivered on site or by referral?</p></div>
-      <div class="rub"><h3>Program depth</h3><p>How many levels of care are offered, and what therapies and specialty tracks are documented?</p></div>
-      <div class="rub"><h3>Continuing care</h3><p>What happens after the program ends&mdash;step-down, alumni support, family involvement?</p></div>
+    <div class="fit-grid-2">
+${SITUATIONS.map((s2) => `      <div class="fit-row is-strong">
+        <span class="fit-v">Situation</span>
+        <span class="fit-l">${s2.label}</span>
+        <span class="fit-r">${s2.why}</span>
+      </div>`).join("\n")}
     </div>
   </div>
 </section>
 
 <section class="band alt">
   <div class="wrap narrow">
-    <h2 class="section-title">What these scores are not</h2>
+    <h2 class="section-title">Why there is no ranking</h2>
+    <p>An ordered list of six centers says the sixth is worst, and nothing in publicly available information supports that claim about anyone&rsquo;s care. It also answers a question almost nobody arrives with. People do not ask which center is best; they ask whether a place can take them, on their insurance, on a schedule they can keep, for the thing that is actually wrong.</p>
+    <p>So the unit of judgement here is the situation, not the center. A center can be the strongest option for one situation and the wrong option for another, and that is what is actually true of every center in this guide.</p>
+
+    <h2 class="section-title" style="margin-top:2.6rem">How a credential claim is weighted</h2>
+    <p>A credential is only worth what a reader can check. We treat published claims in three tiers:</p>
+    <ul class="plain">
+      <li><b>Verified</b> &mdash; the claim names the correct issuing body for New Jersey and can be checked against a public register. Full weight.</li>
+      <li><b>Claimed</b> &mdash; the claim names a correct issuer but we have not independently confirmed it. Partial weight.</li>
+      <li><b>Does not check out</b> &mdash; the claim names a body that does not license this kind of facility in New Jersey, so a reader cannot verify it. No weight.</li>
+    </ul>
+    <p>The third tier is not an accusation about a facility&rsquo;s licensure, which we are not in a position to determine. It is a statement about the claim: New Jersey licenses addiction treatment through the Division of Mental Health and Addiction Services and the Department of Health, and a licensing sentence naming any other authority cannot be checked by a reader against a New Jersey register. Treatment websites are frequently built from templates originating in other states, which is the most likely explanation when this occurs. Where we found it, the disclosure checklist on that center&rsquo;s page shows no licence number rather than a checkmark, and no further comment is made.</p>
+
+    <h2 class="section-title" style="margin-top:2.6rem">What this is not</h2>
     <p class="disclosure">Our scores measure the clarity and breadth of publicly available information&mdash;not treatment outcomes or patient satisfaction. They are not patient reviews, clinical outcome ratings or guarantees. A center may deliver excellent care and publish very little about it, and the reverse is also possible. Always confirm current licensing, clinical staff, costs and admission suitability directly with the center.</p>
     <h2 class="section-title" style="margin-top:2.5rem">Why publication quality is worth scoring at all</h2>
     <p>Because it is the only thing a family can check at 11pm before they call anyone. A center that publishes its license number, its schedule and the levels of care it does <em>not</em> offer has made itself checkable. One that publishes adjectives has not. That is not the same as quality of care, and this guide does not claim it is&mdash;but it is a real signal, and it is the signal available to you before admission.</p>
@@ -944,6 +985,7 @@ if (articles.length) console.log(`  ${articles.length} article(s) rendered`);
 
 emit("compare", comparePage());
 emit("how-we-review", methodologyPage());
+
 
 /* ---------------------------------------------------- the care compass */
 const n2 = (i) => String(i + 1).padStart(2, "0");

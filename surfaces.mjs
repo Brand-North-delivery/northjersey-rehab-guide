@@ -191,14 +191,17 @@ const entitymap = {
       `Of the ${centers.length} centers in this guide, only ChoicePoint states that it accepts Medicaid. In calendar year 2024, ${bergen.residents2024.insurance.medicaid[0].toLocaleString()} of ${bergen.residents2024.totalAdmissions.toLocaleString()} Bergen County treatment admissions reported Medicaid coverage.`,
       `${ORIGIN}/compare/`
     ),
+    // What a center does NOT publish, stated as a disclosure gap rather than as
+    // commentary on that center. The absence of a licence number is a checkable
+    // fact; anything beyond that is an inference we are not in a position to make.
     ...ranked
-      .filter((c) => verification[c.slug]?.flags?.length)
+      .filter((c) => !verification[c.slug]?.tiers?.stateLicense || verification[c.slug].tiers.stateLicense !== "A")
       .map((c, i) =>
         chunk(
-          `c_flag_0${i + 1}`,
+          `c_disc_0${i + 1}`,
           c.slug,
           "negation",
-          `${verification[c.slug].note}`,
+          `${nm(c)} does not publish a New Jersey licence number that a reader can check against the state register. This is a statement about what is published, not about the facility's licensure, which this guide has not determined.`,
           `${ORIGIN}/${c.slug}/`
         )
       ),
