@@ -454,3 +454,11 @@ h3.sub:first-of-type{margin-top:0}
   margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
   font-size:.82rem;color:var(--ink-3)
 }
+
+/* center-page hero: the center's own homepage, not decoration */
+.shot-hero{margin:0;background:var(--paper-2);border-bottom:1px solid var(--line);padding:0 0 1rem}
+.shot-hero .thumb{margin:0 auto;max-width:62rem;border-radius:0;border-left:0;border-right:0;border-top:0}
+.shot-hero figcaption{
+  max-width:62rem;margin:.7rem auto 0;padding:0 1.5rem;
+  font-size:.82rem;color:var(--ink-3);font-style:italic
+}

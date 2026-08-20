@@ -220,11 +220,13 @@ ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }
   </div>
 </section>
 
-${featured(c.slug, "../")}
+<figure class="shot-hero">
+  ${thumb(c, "../")}
+  <figcaption>${shortName(c)}&rsquo;s own website, captured ${REVIEWED}. The branded card image is used only for link previews.</figcaption>
+</figure>
 
 <section class="band">
   <div class="wrap narrow">
-    ${thumb(c, "../")}
     <h2 class="section-title">At a glance</h2>
     <dl class="spec standalone">
 ${Object.entries(c.spec).map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}<sup class="src" title="Provider-reported">*</sup></dd></div>`).join("\n")}
