@@ -1,0 +1,121 @@
+{
+  "slug": "bergen-county-addiction-statistics",
+  "cluster": "bergen-county-evidence",
+  "title": "Bergen County Addiction Statistics, 2024",
+  "metaDescription": "State admissions data for Bergen County: which substances, which ages, who pays, and why alcohol accounts for more treatment admissions than every opioid combined.",
+  "primaryEntity": "Bergen County substance use treatment admissions",
+  "macroContext": "What the 2024 New Jersey admissions data shows about substance use in Bergen County",
+  "datePublished": "2026-08-20",
+  "lastReviewed": "2026-08-20",
+  "reviewedBy": "Bergen County Recovers",
+  "author": "organization",
+
+  "bergenRefs": {
+    "total": "residents2024.totalAdmissions",
+    "clients": "residents2024.unduplicatedClients",
+    "alcohol": "residents2024.primaryDrug.0",
+    "heroin": "residents2024.primaryDrug.1",
+    "cannabis": "residents2024.primaryDrug.2",
+    "cocaine": "residents2024.primaryDrug.3",
+    "otherOpiates": "residents2024.primaryDrug.4",
+    "stimulants": "residents2024.primaryDrug.5",
+    "age3544": "residents2024.age.5",
+    "age2534": "residents2024.age.4",
+    "age55": "residents2024.age.7",
+    "under18": "residents2024.age.0",
+    "male": "residents2024.sex.male",
+    "female": "residents2024.sex.female",
+    "medicaid": "residents2024.insurance.medicaid",
+    "employed": "residents2024.employment.employedFullOrPartTime",
+    "homeless": "residents2024.livingArrangement.homeless",
+    "dui": "residents2024.specialPopulations.drivingUnderTheInfluence",
+    "poverty": "residents2024.federalPovertyLevel0to133",
+    "statewide": "statewide2024.admissions"
+  },
+  "factIds": ["bergen-admissions-2024", "bergen-medicaid-share"],
+
+  "intro": "Bergen County substance use treatment admissions are published annually by the New Jersey Division of Mental Health and Addiction Services, broken down by substance, age, payer and referral route. The 2024 figures cover {{total.n}} admissions among county residents, and the substance at the top of the list is not the one most local coverage is about.",
+
+  "sections": [
+    {
+      "heading": "Which substance sends the most Bergen County residents to treatment?",
+      "answer": "Alcohol, by a wide margin. It was the primary substance in {{alcohol.n}} of {{total.n}} Bergen County admissions in 2024 — {{alcohol.pct}} percent — which is more than every opioid in the dataset combined.",
+      "body": [
+        "Heroin was the primary substance in {{heroin.n}} admissions ({{heroin.pct}} percent) and other opiates in {{otherOpiates.n}} ({{otherOpiates.pct}} percent). Together those two are still well below alcohol.",
+        "Cannabis accounted for {{cannabis.n}} admissions, cocaine for {{cocaine.n}}, and methamphetamines and other stimulants for {{stimulants.n}}.",
+        "Local reporting, county programs and most treatment marketing are weighted toward the opioid crisis, and that weighting is not wrong — opioids drive the overdose deaths. But if the question is what most people actually enter treatment for, the answer in this county is alcohol, and alcohol withdrawal is also the kind most likely to require medical supervision."
+      ],
+      "bridge": "The age profile is similarly at odds with how addiction is usually pictured."
+    },
+    {
+      "heading": "How old are people entering treatment in Bergen County?",
+      "answer": "Mostly in their thirties and forties. The largest single age band was 35 to 44, with {{age3544.n}} admissions — {{age3544.pct}} percent — and people aged 55 and over accounted for a further {{age55.n}}.",
+      "body": [
+        "Adults aged 25 to 34 accounted for {{age2534.n}} admissions. People under 18 accounted for {{under18.n}}, roughly {{under18.pct}} percent of the total.",
+        "Men were {{male.pct}} percent of admissions and women {{female.pct}} percent.",
+        "The practical implication is that most people entering treatment here have jobs, dependants and mortgages. {{employed.n}} admissions were people employed full or part time, which is why the availability of an evening program is a clinical access question rather than a convenience."
+      ],
+      "bridge": "Their circumstances outside treatment shape what they can actually attend."
+    },
+    {
+      "heading": "What are the financial circumstances of people entering treatment?",
+      "answer": "Most are on low incomes and public insurance. {{poverty.n}} admissions — {{poverty.pct}} percent — were at or below 133 percent of the federal poverty level, and {{medicaid.n}} reported Medicaid coverage.",
+      "body": [
+        "{{homeless.n}} admissions were people recorded as homeless, {{homeless.pct}} percent of the total.",
+        "This is the figure that most sharply distinguishes the population entering treatment from the population most private treatment marketing addresses. A comparison of private outpatient programs is, for a majority of this group, a comparison of options that cannot bill for them.",
+        "The county addiction line and hospital-affiliated programs are the usual route for anyone on Medicaid, and asking about network status before the clinical conversation avoids a great deal of wasted effort."
+      ],
+      "bridge": "One more route into treatment is worth separating out, because it is larger than most people expect."
+    },
+    {
+      "heading": "How many people enter treatment through the courts?",
+      "answer": "A substantial minority. Driving under the influence was recorded as a special population in {{dui.n}} Bergen County admissions in 2024 — {{dui.pct}} percent — and corrections-related programs and the Intoxicated Drivers Resource Center together account for roughly a quarter of all referrals.",
+      "body": [
+        "That matters when reading a center's marketing. Programs that work extensively with court-mandated clients are running a different kind of admission, with reporting obligations and compliance requirements attached, and it is a reasonable thing to ask about directly.",
+        "It also means a meaningful share of people in any given group did not choose to be there this week. Programs vary a great deal in how well they handle that, and it is worth asking how mandated and voluntary clients are grouped.",
+        "For context, New Jersey recorded {{statewide.n}} treatment admissions statewide in 2024, so Bergen County is a small share of a large system."
+      ],
+      "bridge": "Together these four figures describe a population quite different from the one most treatment advertising pictures."
+    }
+  ],
+
+  "keyTakeaways": [
+    "Alcohol was the primary substance in {{alcohol.pct}} percent of Bergen County admissions in 2024 — more than every opioid combined.",
+    "The largest age band was 35 to 44, at {{age3544.pct}} percent, and {{employed.n}} admissions were people in work.",
+    "{{poverty.pct}} percent of admissions were at or below 133 percent of the federal poverty level.",
+    "{{medicaid.n}} of {{total.n}} admissions reported Medicaid coverage.",
+    "{{dui.n}} admissions involved driving under the influence, and roughly a quarter of referrals came through courts or the IDRC."
+  ],
+
+  "faqs": [
+    ["Is alcohol really a bigger problem than opioids in Bergen County?", "By treatment admissions, yes — alcohol is the primary substance in half of them. By overdose deaths, opioids dominate. The two measures answer different questions and both are true.", "People also ask, 'is alcohol worse than drugs'"],
+    ["Where does this data come from?", "The New Jersey Division of Mental Health and Addiction Services publishes a Substance Use Overview for every county each year, compiled from reports licensed providers file into the state monitoring system.", "Related searches, 'nj dmhas substance use overview'"],
+    ["Does this include people who never entered treatment?", "No. This counts admissions to licensed treatment only. The number of people with a substance use disorder in Bergen County is considerably larger than the number who enter treatment in any year.", "People also ask, 'how many people with addiction get treatment'"],
+    ["Why are there more admissions than clients?", "Because some people are admitted more than once in a year. The state reports both figures, and the gap between them is the readmission rate.", "Related searches, 'treatment readmission rate'"],
+    ["Are these Bergen County residents or Bergen County facilities?", "Residents. The state also publishes a separate table for admissions to facilities located in the county, and the two differ substantially because most residents are treated elsewhere.", "People also ask, 'county of residence vs treatment site'"],
+    ["What does 133 percent of the federal poverty level mean?", "It is the income threshold used for Medicaid eligibility under the Affordable Care Act expansion. It is reported here because it is the field the state collects.", "Related searches, 'federal poverty level medicaid nj'"],
+    ["How recent is this?", "It covers calendar year 2024 and was published in January 2026. It is the most recent complete year New Jersey has released.", "People also ask, 'latest nj addiction statistics'"],
+    ["Does the data say which treatment works best?", "No. Admissions data records who entered treatment and for what. It does not measure outcomes, and no publicly available New Jersey dataset ranks providers by result.", "People also ask, 'which rehab has the best success rate'"]
+  ],
+
+  "sources": [
+    {
+      "name": "New Jersey Department of Human Services, Division of Mental Health and Addiction Services",
+      "title": "Substance Use Overview 2024 — Bergen County",
+      "url": "https://nj.gov/humanservices/dmhas/documents/pdf/statistical/substance-abuse-overview/2024/Ber.pdf",
+      "note": "Published January 2026 from the March 2025 NJSAMS download. Calendar year 2024."
+    },
+    {
+      "name": "New Jersey Department of Human Services, Division of Mental Health and Addiction Services",
+      "title": "Substance Use Overview 2024 — Statewide",
+      "url": "https://nj.gov/humanservices/dmhas/documents/pdf/statistical/substance-abuse-overview/2024/Statewide.pdf",
+      "note": "Statewide totals for the same reporting year."
+    }
+  ],
+
+  "links": [
+    ["/where-bergen-residents-get-treatment/", "where Bergen County residents actually get treatment"],
+    ["/compare/", "the six centers side by side"],
+    ["/how-we-review/", "how these centers are assessed"]
+  ]
+}

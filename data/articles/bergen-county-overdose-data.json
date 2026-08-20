@@ -1,0 +1,113 @@
+{
+  "slug": "bergen-county-overdose-data",
+  "cluster": "bergen-county-evidence",
+  "title": "Bergen County Overdose Data, 2017 to 2025",
+  "metaDescription": "Nine years of Bergen County Prosecutor's Office data on suspected overdoses, naloxone deployments and drug-related deaths, with the trend and its limits stated plainly.",
+  "primaryEntity": "Bergen County overdose data",
+  "macroContext": "What nine years of county overdose and naloxone figures show, and what they cannot show",
+  "datePublished": "2026-08-20",
+  "lastReviewed": "2026-08-20",
+  "reviewedBy": "Bergen County Recovers",
+  "author": "organization",
+
+  "bergenRefs": {
+    "od2025": "overdoseTrend.rows.0.1",
+    "od2021": "overdoseTrend.rows.4.1",
+    "od2017": "overdoseTrend.rows.8.1",
+    "deaths2025": "overdoseTrend.rows.0.4",
+    "deaths2021": "overdoseTrend.rows.4.4",
+    "deaths2017": "overdoseTrend.rows.8.4",
+    "deploy2025": "overdoseTrend.rows.0.2",
+    "saves2025": "overdoseTrend.rows.0.3",
+    "deploy2021": "overdoseTrend.rows.4.2",
+    "saves2021": "overdoseTrend.rows.4.3",
+    "od2024": "overdoseTrend.rows.1.1",
+    "deaths2024": "overdoseTrend.rows.1.4"
+  },
+  "factIds": ["bergen-overdose-trend"],
+
+  "intro": "Bergen County overdose data is published by the county Prosecutor's Office as a nine-year series covering suspected overdoses, law enforcement naloxone deployments, reversals and drug-related deaths. The direction of travel since 2021 is downward on every one of those measures, which is not the story most people expect.",
+
+  "sections": [
+    {
+      "heading": "Are overdoses in Bergen County rising or falling?",
+      "answer": "Falling, and for four consecutive years. Suspected overdoses peaked at {{od2021.n}} in 2021 and were {{od2025.n}} in 2025, a decline of roughly 29 percent. The 2017 figure, near the start of the series, was {{od2017.n}}.",
+      "body": [
+        "The intermediate years show the same direction rather than a single good year: {{od2024.n}} in 2024, down from the 2021 peak without a reversal in between.",
+        "This is a suspected-overdose count compiled by law enforcement, not a medical count. It captures incidents police attended and classified as likely overdoses, so it moves with reporting practice as well as with the underlying rate.",
+        "It is still the most consistent nine-year local series available, collected the same way each year by the same office, which is what makes the trend meaningful even where the absolute number is imprecise."
+      ],
+      "bridge": "The death figures move in the same direction, with an important qualification attached."
+    },
+    {
+      "heading": "How many people die of drug-related causes in Bergen County?",
+      "answer": "Fewer than at the peak. Drug-related fatalities were {{deaths2021.n}} in 2021 and {{deaths2025.n}} in 2025 on the county's figures. The Prosecutor's Office states that counts from 2023 onward remain provisional, pending final reports from the New Jersey Office of the Chief State Medical Examiner.",
+      "body": [
+        "That qualification is not a formality. Provisional counts in this field are routinely revised upward as toxicology completes, sometimes substantially, so the most recent years should be read as a floor rather than a settled figure.",
+        "The 2017 count near the start of the series was {{deaths2017.n}}, and 2024 currently stands at {{deaths2024.n}}, also provisional.",
+        "What can be said with confidence is that the peak was 2021 and the direction since has been downward. What cannot yet be said is precisely how far, and anyone citing the most recent year as final is overstating what the source supports."
+      ],
+      "bridge": "Part of the explanation sits in the naloxone figures, which the county reports alongside."
+    },
+    {
+      "heading": "How often is naloxone used in Bergen County?",
+      "answer": "Several hundred times a year, with a high reversal rate. Law enforcement deployed naloxone {{deploy2025.n}} times in 2025 and recorded {{saves2025.n}} reversals. At the 2021 peak, deployments were {{deploy2021.n}} and reversals {{saves2021.n}}.",
+      "body": [
+        "Every Bergen County law enforcement officer has carried naloxone since 2014, which is why a county-level series of this length exists at all.",
+        "Deployments have fallen alongside suspected overdoses rather than independently of them, which is consistent with fewer incidents rather than with less response.",
+        "These counts cover law enforcement only. Naloxone administered by emergency medical services, hospital staff, or by family members and bystanders is not in this series, so the true number of reversals in the county is higher than the figure shown."
+      ],
+      "bridge": "Reading these three series together is what makes them useful, and also what limits them."
+    },
+    {
+      "heading": "What does this data not tell you?",
+      "answer": "It does not measure treatment, and it does not measure need. Overdose counts record acute emergencies attended by police. They say nothing about how many county residents have a substance use disorder, how many are in treatment, or how well any provider performs.",
+      "body": [
+        "For treatment volume, the New Jersey Division of Mental Health and Addiction Services publishes a separate annual dataset by county, which counts admissions rather than emergencies.",
+        "No publicly available New Jersey dataset ranks treatment providers by outcome. Any comparison of centers, including this one, is working from what providers publish about themselves rather than from results.",
+        "The trend here is genuinely encouraging and worth knowing, particularly for families who assume the situation is only worsening. It is not evidence that any particular program works."
+      ],
+      "bridge": "If you are choosing a center rather than reading the county's numbers, the admissions data is the more useful of the two."
+    }
+  ],
+
+  "keyTakeaways": [
+    "Suspected overdoses peaked at {{od2021.n}} in 2021 and were {{od2025.n}} in 2025.",
+    "Drug-related deaths fell from {{deaths2021.n}} to {{deaths2025.n}} over the same period, but counts from 2023 onward are provisional and may be revised upward.",
+    "Law enforcement deployed naloxone {{deploy2025.n}} times in 2025, recording {{saves2025.n}} reversals.",
+    "Every Bergen County officer has carried naloxone since 2014, which is why a nine-year local series exists.",
+    "These figures measure emergencies, not treatment need and not provider quality."
+  ],
+
+  "faqs": [
+    ["Why are the recent death counts described as provisional?", "Because the Prosecutor's Office says so. Final determination rests with the New Jersey Office of the Chief State Medical Examiner, and toxicology can take months, so counts from 2023 onward may be revised.", "People also ask, 'why are overdose deaths provisional'"],
+    ["Does a falling overdose count mean the problem is over?", "No. It means fewer attended emergencies than at the 2021 peak. Treatment admissions in the county have not fallen at anything like the same rate.", "People also ask, 'are overdose deaths going down'"],
+    ["What is the difference between a suspected overdose and a death?", "A suspected overdose is an incident law enforcement attended and classified as a likely overdose, most of which the person survives. Deaths are a separate and much smaller count.", "Related searches, 'suspected overdose definition'"],
+    ["Does this count naloxone used by paramedics or families?", "No. This series covers law enforcement deployments only, so the true number of reversals in the county is higher than shown.", "People also ask, 'who can administer narcan'"],
+    ["How do I get naloxone in Bergen County?", "Naloxone is available without a prescription at pharmacies in New Jersey, and the county runs distribution and training through its health services division. If opioids are involved in your household, having it and knowing how to use it is the single highest-value precaution available.", "People also ask, 'how to get narcan nj'"],
+    ["Is Bergen County better or worse than other New Jersey counties?", "This series does not support that comparison, because counties compile suspected-overdose counts differently. Statewide comparisons require the state medical examiner's data rather than county figures.", "Related searches, 'nj overdose deaths by county'"],
+    ["Which drugs are involved?", "The county series counts overdoses without breaking them down by substance. The state treatment dataset publishes a substance breakdown for admissions, which is a different measure.", "People also ask, 'what drugs cause the most overdoses'"],
+    ["Where can I see the original figures?", "The Bergen County Prosecutor's Office publishes the full nine-year table on its opioid response page, linked in the sources below.", "Related searches, 'bergen county prosecutor opioid'"]
+  ],
+
+  "sources": [
+    {
+      "name": "Bergen County Prosecutor's Office",
+      "title": "Opioid Response",
+      "url": "https://www.bcpo.net/opioid-response/",
+      "note": "Suspected overdoses, naloxone deployments, reversals and drug-related fatalities, 2017 to 2025. Fatality counts from 2023 onward stated as provisional."
+    },
+    {
+      "name": "New Jersey Department of Human Services, Division of Mental Health and Addiction Services",
+      "title": "Substance Use Overview 2024 — Bergen County",
+      "url": "https://nj.gov/humanservices/dmhas/documents/pdf/statistical/substance-abuse-overview/2024/Ber.pdf",
+      "note": "Treatment admissions, used here for the contrast between emergencies and treatment volume."
+    }
+  ],
+
+  "links": [
+    ["/bergen-county-addiction-statistics/", "Bergen County addiction statistics for 2024"],
+    ["/where-bergen-residents-get-treatment/", "where Bergen County residents actually get treatment"],
+    ["/compare/", "the six centers side by side"]
+  ]
+}

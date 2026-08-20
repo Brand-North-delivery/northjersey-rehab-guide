@@ -741,7 +741,7 @@ ${DIMS.map((d) => `          <tr><th>${d}</th>${centers.map((c) => `<td class="n
     </div>
     ${fineprint}
     <p class="back"><a href="../how-we-review/">How these scores are produced &rarr;</a>
-      &middot; <a href="../where-bergen-residents-get-treatment/">Where Bergen County residents actually get treatment</a></p>
+      &middot; <a href="../bergen-county-evidence/">Bergen County evidence &rarr;</a></p>
   </div>
 </section>
 </main>
@@ -982,6 +982,21 @@ ${articleBody(a)}
 ${foot("../")}`);
 }
 if (articles.length) console.log(`  ${articles.length} article(s) rendered`);
+
+emit("bergen-county-evidence", policyPage(
+  "Bergen County evidence",
+  "The county data behind this guide: treatment admissions, overdose trends, and where residents actually go for care.",
+  "bergen-county-evidence",
+  `    <p class="lede-dark">Three pages built from primary county and state sources rather than from provider marketing. Every figure on them resolves from a single dataset at build time, so the number shown and the number the source published cannot drift apart.</p>
+    <div class="alt-list">
+${articles.map((a) => `      <article class="alt-item">
+        <div class="alt-head"><div><h3><a href="../${a.slug}/">${a.title}</a></h3><p class="place">Reviewed ${a.lastReviewed}</p></div></div>
+        <p>${a.metaDescription}</p>
+        <p class="back"><a href="../${a.slug}/">Read it &rarr;</a></p>
+      </article>`).join("\n")}
+    </div>
+    <p class="fineprint">Sources: NJ Division of Mental Health and Addiction Services, Substance Use Overview 2024; Bergen County Prosecutor&rsquo;s Office opioid response data, 2017 to 2025.</p>`
+));
 
 emit("compare", comparePage());
 emit("how-we-review", methodologyPage());
