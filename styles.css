@@ -484,3 +484,18 @@ h3.sub:first-of-type{margin-top:0}
 .stage-meta{font-size:.88rem !important;color:var(--ink-3) !important}
 .stage-meta b{color:var(--ink-2)}
 .stage-why{font-size:.9rem !important;font-style:italic;color:var(--ink-3) !important;margin-bottom:0 !important}
+
+/* outer-section articles */
+.article{max-width:44rem}
+.article .byline{font-size:.86rem;color:var(--ink-3);margin:.9rem 0 0;padding-top:.9rem;border-top:1px solid var(--line)}
+.art-sec{margin:2.6rem 0}
+.art-sec h2{font-family:var(--serif);font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.16;font-weight:600;margin:0 0 1rem;letter-spacing:-.012em;text-wrap:balance}
+.art-sec p{margin:0 0 1.05rem;max-width:none}
+.art-sec p strong{font-weight:650;color:var(--ink)}
+.art-sec .bridge{color:var(--ink-3);font-style:italic}
+.takeaways{background:var(--green-soft);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:1.4rem 1.6rem}
+.takeaways h2{font-size:1.25rem;margin-bottom:.8rem;color:#14503c}
+.takeaways ul{margin:0;padding-left:1.15rem}
+.takeaways li{margin-bottom:.55rem;color:#1f3b31;font-size:.97rem}
+.sources ol{padding-left:1.2rem}
+.sources li{margin-bottom:.7rem;font-size:.93rem;color:var(--ink-2)}

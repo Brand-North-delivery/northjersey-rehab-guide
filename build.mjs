@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as S from "./schema.mjs";
+import { loadArticles, assertShape, articleBody, resolveRefs } from "./articles.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const raw = JSON.parse(readFileSync(join(ROOT, "data/centers.json"), "utf8"));
@@ -20,6 +21,7 @@ const verification = JSON.parse(readFileSync(join(ROOT, "data/verification.json"
 const scores = JSON.parse(readFileSync(join(ROOT, "data/scores.json"), "utf8"));
 const compass = JSON.parse(readFileSync(join(ROOT, "data/compass.json"), "utf8"));
 const process_ = JSON.parse(readFileSync(join(ROOT, "data/process.json"), "utf8"));
+const bergen = JSON.parse(readFileSync(join(ROOT, "data/bergen.json"), "utf8"));
 
 /* Rank and score come from the algorithm, not from the editorial file. If the
    two ever disagree, the algorithm wins and the methodology page stays true. */
@@ -711,7 +713,8 @@ ${DIMS.map((d) => `          <tr><th>${d}</th>${centers.map((c) => `<td class="n
       </table>
     </div>
     ${fineprint}
-    <p class="back"><a href="../how-we-review/">How these scores are produced &rarr;</a></p>
+    <p class="back"><a href="../how-we-review/">How these scores are produced &rarr;</a>
+      &middot; <a href="../where-bergen-residents-get-treatment/">Where Bergen County residents actually get treatment</a></p>
   </div>
 </section>
 </main>
@@ -897,6 +900,47 @@ ${process_.commitments.map((c) => `      <li>${c}</li>`).join("\n")}
 
     <p class="fineprint">Process last reviewed ${REVIEWED}. The experience claim above is a statement by the publisher, recorded ${process_.author.experienceSource.date}.</p>`
 ));
+
+/* --------------------------------------------------- outer section: articles */
+const articles = loadArticles(ROOT, bergen);
+for (const a of articles) {
+  assertShape(a);
+  const R = (t) => resolveRefs(t, a.refs);
+  emit(a.slug, `${head(
+    `${a.title} | Bergen County Recovers`,
+    a.metaDescription,
+    "../",
+    "",
+    `${a.slug}/`,
+    S.render([
+      S.webPageNode(`${a.slug}/`, a.title, a.metaDescription, a.lastReviewed),
+      S.faqNode(a.faqs.map(([q, ans]) => [R(q), R(ans)])),
+      S.breadcrumbNode([
+        { name: "Guide", path: "" },
+        { name: "Bergen County evidence", path: "compare/" },
+        { name: a.title },
+      ]),
+    ])
+  )}
+<main id="main">
+${crumbs("../", [{ label: "Bergen County evidence", href: "../compare/" }, { label: a.title }])}
+
+<section class="center-hero">
+  <div class="wrap narrow">
+    <p class="pick-flag muted">Bergen County evidence</p>
+    <h1>${a.title}</h1>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap narrow">
+${articleBody(a)}
+  </div>
+</section>
+</main>
+${foot("../")}`);
+}
+if (articles.length) console.log(`  ${articles.length} article(s) rendered`);
 
 emit("compare", comparePage());
 emit("how-we-review", methodologyPage());

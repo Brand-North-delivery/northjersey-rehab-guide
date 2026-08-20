@@ -1,0 +1,155 @@
+{
+  "slug": "where-bergen-residents-get-treatment",
+  "cluster": "bergen-county-evidence",
+  "title": "Where Bergen County Residents Actually Get Treatment",
+  "metaDescription": "More than half of Bergen County residents entering addiction treatment are treated outside the county. State admissions data on where they go, and why it matters when choosing.",
+  "primaryEntity": "Bergen County addiction treatment admissions",
+  "macroContext": "Where Bergen County residents are treated, and why it is often not in Bergen County",
+  "datePublished": "2026-08-19",
+  "lastReviewed": "2026-08-19",
+  "reviewedBy": "Bergen County Recovers",
+  "author": "organization",
+  "bergenRefs": {
+    "total": "residents2024.totalAdmissions",
+    "clients": "residents2024.unduplicatedClients",
+    "inCounty": "residents2024.treatedInCountyOfResidence",
+    "medicaid": "residents2024.insurance.medicaid",
+    "uninsured": "residents2024.insurance.noInsurance",
+    "selfPay": "residents2024.employment.employedFullOrPartTime",
+    "passaic": "residents2024.topReceivingCountiesOutsideBergen.0",
+    "monmouth": "residents2024.topReceivingCountiesOutsideBergen.1",
+    "essex": "residents2024.topReceivingCountiesOutsideBergen.2",
+    "selfRef": "residents2024.referralSource.0",
+    "repeat2": "residents2024.readmission.twoAdmissions",
+    "repeat3": "residents2024.readmission.threeOrMore"
+  },
+  "factIds": [
+    "bergen-admissions-2024",
+    "bergen-treated-out-of-county",
+    "bergen-medicaid-share"
+  ],
+  "intro": "Bergen County addiction treatment admissions are recorded by the State of New Jersey by county of residence, not by where the treatment happened, and the gap between those two numbers is large. In calendar year 2024 the state recorded {{total.n}} treatment admissions among Bergen County residents. Fewer than half were treated inside the county they live in.",
+  "sections": [
+    {
+      "heading": "How many Bergen County residents enter treatment each year?",
+      "answer": "New Jersey recorded {{total.n}} substance use treatment admissions among Bergen County residents in calendar year 2024, across {{clients.n}} unduplicated individuals. The difference between those two figures is the readmission rate, and it is the first thing the data tells you.",
+      "body": [
+        "The state collects this through the New Jersey Substance Abuse Monitoring System, which licensed treatment providers report into directly. The 2024 county report was published in January 2026 from the March 2025 data download, so it is the most recent complete year available.",
+        "That {{total.n}} admissions came from {{clients.n}} people means a substantial share of clients were admitted more than once inside a single year. {{repeat2.n}} people had two admissions and {{repeat3.n}} had three or more. Continuity of care is not a secondary question for this population; it is the central one.",
+        "Whichever center a family is looking at, the question that follows from this figure is what happens after the program ends, and whether returning is straightforward or requires starting the intake process over."
+      ],
+      "bridge": "The more surprising number is not how many people enter treatment, but where they end up when they do."
+    },
+    {
+      "heading": "Are Bergen County residents treated in Bergen County?",
+      "answer": "Most are not. Of {{total.n}} admissions among Bergen County residents in 2024, {{inCounty.n}} were treated in the county of residence \u2014 {{inCounty.pct}} percent. The majority travelled to another county for care.",
+      "body": [
+        "The largest single destination outside Bergen was {{passaic.name}}, which received {{passaic.n}} Bergen residents. {{monmouth.name}} received {{monmouth.n}} and {{essex.name}} {{essex.n}}.",
+        "This matters for anyone searching locally. A guide listing only Bergen County addresses describes where a minority of Bergen residents are actually treated, and a search that filters hard on the county line will hide options that people in the same situation are already using.",
+        "It is also why this guide includes BlueCrest Recovery Center, which sits in Woodland Park, Passaic County rather than in Bergen. Excluding it on a technicality would misdescribe the market rather than clarify it, and the county is labelled on every page it appears on."
+      ],
+      "bridge": "Some of that travel is about clinical fit. A great deal of it is about who will accept the person's insurance."
+    },
+    {
+      "heading": "Who pays for addiction treatment in Bergen County?",
+      "answer": "Medicaid is the single largest payer. {{medicaid.n}} of {{total.n}} Bergen County admissions in 2024 reported Medicaid coverage \u2014 {{medicaid.pct}} percent \u2014 and a further {{uninsured.n}} reported no insurance at all.",
+      "body": [
+        "That figure sits awkwardly against the private treatment market advertising to this county. Of the six centers compared in this guide, one states that it accepts Medicaid.",
+        "The result is a mismatch between the population entering treatment and the population most treatment marketing addresses. Someone reading a polished comparison of private outpatient programs may be reading about options that cannot take them, and will not discover that until the benefits check.",
+        "Ask about network status before the clinical conversation rather than after it. In-network and out-of-network are different products at very different prices, and both answers sound like yes on the phone."
+      ],
+      "bridge": "Insurance explains part of the travel. The other part is that most people arrive without anyone guiding the choice."
+    },
+    {
+      "heading": "How do people find treatment in the first place?",
+      "answer": "Nearly half arrive on their own. Self-referral accounted for {{selfRef.n}} of {{total.n}} Bergen County admissions in 2024, {{selfRef.pct}} percent, making it by a wide margin the most common route into treatment.",
+      "body": [
+        "The next largest routes are corrections-related programs and the Intoxicated Drivers Resource Center, which together account for roughly a quarter of admissions. Referrals from a mental health provider are a small fraction of the total.",
+        "Most people choosing treatment therefore have no clinician steering the decision, and are comparing marketing pages at the worst moment of their lives. That is the gap a comparison guide exists to fill, and it is why the questions to ask a center matter more than any ranking.",
+        "Bergen County also runs a 24-hour addiction line staffed for exactly this situation, which connects callers to treatment and to peer recovery support without going through an admissions department first."
+      ],
+      "bridge": "Taken together, these four figures change what a useful comparison looks like."
+    }
+  ],
+  "keyTakeaways": [
+    "New Jersey recorded {{total.n}} Bergen County resident treatment admissions in 2024, from {{clients.n}} individuals.",
+    "Only {{inCounty.pct}} percent were treated in the county they live in; {{passaic.n}} went to {{passaic.name}} County.",
+    "Medicaid covered {{medicaid.pct}} percent of admissions, and one of the six centers in this guide accepts it.",
+    "{{selfRef.pct}} percent of admissions were self-referrals, with no clinician guiding the choice.",
+    "{{repeat3.n}} people were admitted three or more times in a single year, which makes aftercare the question that matters most."
+  ],
+  "faqs": [
+    [
+      "Why are most Bergen County residents treated outside the county?",
+      "The state data records where people live and where they were treated, but not why they travelled. Insurance acceptance, bed availability, level of care and referral routes all push people across county lines, and Passaic County is immediately adjacent.",
+      "Related searches, 'rehab near me bergen county nj'"
+    ],
+    [
+      "Does going out of county mean worse treatment?",
+      "No. County boundaries are administrative, not clinical. A center twenty minutes away in Passaic or Essex may be a better clinical fit than one in Bergen, and the data shows this is already the common experience.",
+      "People also ask, 'is it better to go to rehab out of state'"
+    ],
+    [
+      "How current is this data?",
+      "It covers calendar year 2024 and was published by NJ DMHAS in January 2026 from the March 2025 NJSAMS download. It is the most recent complete year the state has released.",
+      "People also ask, 'nj drug treatment statistics'"
+    ],
+    [
+      "Does this count alcohol as well as drugs?",
+      "Yes. The state counts substance use treatment admissions of all types, and alcohol is the primary substance in half of Bergen County admissions \u2014 more than every opioid combined.",
+      "Related searches, 'alcohol rehab statistics nj'"
+    ],
+    [
+      "What if I have Medicaid?",
+      "Ask each center directly whether it accepts New Jersey Medicaid, because most private centers marketing in this county do not. County-run and hospital-affiliated programs are the usual route, and the county addiction line can point you at current options.",
+      "People also ask, 'does medicaid cover rehab in nj'"
+    ],
+    [
+      "Are these numbers people or admissions?",
+      "Both are given here and they are different. Admissions count episodes; unduplicated clients count people. One person admitted three times appears once as a client and three times as an admission.",
+      "Related searches, 'njsams data explained'"
+    ],
+    [
+      "Does this include mental health treatment without substance use?",
+      "No. This dataset covers substance use disorder treatment. Mental health treatment is licensed separately in New Jersey and reported separately.",
+      "People also ask, 'mental health vs substance abuse treatment nj'"
+    ],
+    [
+      "Where can I see the original data?",
+      "The NJ Department of Human Services publishes a Substance Use Overview for every county each year. The Bergen County report is linked in the sources below and is a public PDF.",
+      "Related searches, 'nj dmhas county reports'"
+    ]
+  ],
+  "sources": [
+    {
+      "name": "New Jersey Department of Human Services, Division of Mental Health and Addiction Services",
+      "title": "Substance Use Overview 2024 \u2014 Bergen County",
+      "url": "https://nj.gov/humanservices/dmhas/documents/pdf/statistical/substance-abuse-overview/2024/Ber.pdf",
+      "note": "Published January 2026 from the March 2025 NJSAMS download. Calendar year 2024."
+    },
+    {
+      "name": "Bergen County Prosecutor's Office",
+      "title": "Opioid Response",
+      "url": "https://www.bcpo.net/opioid-response/",
+      "note": "County overdose and naloxone data, 2017 to 2025."
+    }
+  ],
+  "links": [
+    [
+      "/compare/",
+      "all six centers side by side"
+    ],
+    [
+      "/how-we-review/",
+      "how these centers are scored"
+    ],
+    [
+      "/bluecrest-recovery-center/",
+      "BlueCrest Recovery Center"
+    ],
+    [
+      "/choicepoint/",
+      "ChoicePoint"
+    ]
+  ]
+}

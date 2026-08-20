@@ -88,6 +88,15 @@ for (const file of files) {
   const base = new URL(from === "/" ? "/" : `${from}/`, ORIGIN);
   const seen = new Map();
 
+  // Article rules apply to the ARTICLE BODY, not the page. Nav, breadcrumb and
+  // footer links are chrome; counting them makes the budget meaningless and
+  // reports the footer as a duplicate destination on every page.
+  const isArticle = articleRoutes.has(from);
+  const bodyHtml = isArticle
+    ? (html.match(/<article class="article">([\s\S]*?)<\/article>/i)?.[1] ?? "")
+    : html;
+  const bodySeen = new Map();
+
   for (const m of html.matchAll(/<a[^>]*?href\s*=\s*["']([^"']+)["']/gis)) {
     const raw = m[1].trim();
     if (!raw || raw.startsWith("#")) continue;
@@ -118,16 +127,27 @@ for (const file of files) {
     seen.set(target, (seen.get(target) || 0) + 1);
   }
 
-  if (articleRoutes.has(from)) {
-    for (const [t, n] of seen) {
+  if (isArticle) {
+    for (const m of bodyHtml.matchAll(/<a[^>]*?href\s*=\s*["']([^"']+)["']/gis)) {
+      const raw = m[1].trim();
+      if (!raw || raw.startsWith("#")) continue;
+      if (!/^https?:/i.test(raw) && /^[a-z]+:/i.test(raw)) continue;
+      let u; try { u = new URL(raw, base); } catch { continue; }
+      if (u.origin !== ORIGIN) continue;
+      let t = u.pathname; if (t.length > 1) t = t.replace(/\/$/, "");
+      if (IGNORE_PREFIX.some((p) => t.startsWith(p)) || IGNORE_EXT.test(t)) continue;
+      bodySeen.set(t, (bodySeen.get(t) || 0) + 1);
+    }
+    for (const [t, n] of bodySeen) {
       if (n > 1) findings.push({ from, rule: "duplicate-destination", detail: `${t} linked ${n}x` });
     }
-    const intro = html.match(/<div class="article-intro">([\s\S]*?)<\/div>/i);
-    if (intro && /<a[^>]*href/i.test(intro[1])) {
+    // the byline sits inside .article-intro; only the lede paragraph is the intro
+    const lede = bodyHtml.match(/<p class="lede-dark">([\s\S]*?)<\/p>/i);
+    if (lede && /<a[^>]*href/i.test(lede[1])) {
       findings.push({ from, rule: "intro-link", detail: "introduction contains a link" });
     }
-    if (seen.size < 3 || seen.size > 5) {
-      findings.push({ from, rule: "link-budget", detail: `${seen.size} unique body links; budget is 3-5` });
+    if (bodySeen.size < 3 || bodySeen.size > 5) {
+      findings.push({ from, rule: "link-budget", detail: `${bodySeen.size} unique body links; budget is 3-5` });
     }
   }
 }
