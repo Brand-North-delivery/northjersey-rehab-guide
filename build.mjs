@@ -194,6 +194,28 @@ ${Object.entries(c.spec).map(([k, v]) => `            <div><dt>${k}</dt><dd>${v}
         </div>
       </li>`;
 
+
+/* Cross-comparisons this center appears in. Without this the generated
+   head-to-heads between two non-pivot centers are orphans: built, deployed,
+   and unreachable from anywhere on the site. */
+const CROSS = [
+  ["north-jersey-recovery-center", "choicepoint"],
+  ["bluecrest-recovery-center", "boca-recovery-center-englewood"],
+  ["choicepoint", "ikon-recovery-centers"],
+  ["ikon-recovery-centers", "bluecrest-recovery-center"],
+];
+
+const crossLinksFor = (c) => {
+  const mine = CROSS.filter(([x, y]) => x === c.slug || y === c.slug);
+  if (!mine.length) return "";
+  const items = mine.map(([x, y]) => {
+    const a = centers.find((z) => z.slug === x);
+    const b = centers.find((z) => z.slug === y);
+    return `<a href="../${x}-vs-${y}/">${shortName(a)} vs ${shortName(b)}</a>`;
+  });
+  return `<p class="back">Also compared directly: ${items.join(" &middot; ")}</p>`;
+};
+
 /* --------------------------------------------------------- 1. review page */
 
 const reviewPage = (c) => {
@@ -330,6 +352,7 @@ ${c.ask.map((q) => `      <li>${q}</li>`).join("\n")}
 ${others.map((o) => `      <li><a href="../${o.slug}/"><span class="o-rank">${o.rank}</span><span class="o-body"><b>${o.name}</b><i>${o.city}</i></span><span class="o-score">${o.score}</span></a></li>`).join("\n")}
     </ul>
     <p class="back">${c.pick ? "" : `<a href="../${c.slug}-alternatives/">Alternatives to ${shortName(c)}</a> &middot; <a href="../is-${c.slug}-worth-it/">Is ${shortName(c)} worth it?</a> &middot; `}<a href="../compare/">All six side by side</a></p>
+    ${crossLinksFor(c)}
   </div>
 </section>
 </main>
@@ -710,12 +733,6 @@ RIVALS.forEach((c) => {
 });
 
 /* cross-comparisons people actually make: same town, or same capability */
-const CROSS = [
-  ["north-jersey-recovery-center", "choicepoint"],
-  ["bluecrest-recovery-center", "boca-recovery-center-englewood"],
-  ["choicepoint", "ikon-recovery-centers"],
-  ["ikon-recovery-centers", "bluecrest-recovery-center"],
-];
 CROSS.forEach(([x, y]) => {
   const a = centers.find((c) => c.slug === x);
   const b = centers.find((c) => c.slug === y);
