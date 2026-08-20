@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import * as S from "./schema.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const raw = JSON.parse(readFileSync(join(ROOT, "data/centers.json"), "utf8"));
@@ -33,6 +34,7 @@ const centers = [...raw]
   }));
 
 const REVIEWED = "August 2026";
+const REVIEWED_ISO = "2026-08-19";
 const PIVOT = centers.find((c) => c.pick);
 
 /* A flagged verification claim, rendered wherever the center appears. */
@@ -89,7 +91,7 @@ const ogTags = (slug, title, desc) => {
 <meta name="twitter:image" content="${img}">` : ""}`;
 };
 
-const head = (title, desc, up, slug = "", canonicalPath = "") => `<!doctype html>
+const head = (title, desc, up, slug = "", canonicalPath = "", jsonLd = "") => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -102,6 +104,7 @@ ${ogTags(slug, title, desc)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${up}styles.css">
+${jsonLd}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -139,6 +142,8 @@ const foot = (up) => `
         <a href="${up}how-we-review/">Our review approach</a>
         <a href="${up}editorial-policy/">Editorial policy</a>
         <a href="${up}privacy/">Privacy</a>
+        <a href="${up}sitemap/">Sitemap</a>
+        <a href="${up}entitymap/">EntityMap</a>
       </div>
     </div>
     <p class="foot-legal">&copy; 2026 Bergen County Recovers &middot; Information, not medical advice.</p>
@@ -226,7 +231,17 @@ const reviewPage = (c) => {
     `An editorial review of ${plain(c.name)} in ${c.city}: levels of care, licensing, accreditation, insurance, who it fits, and what to ask before you call.`,
     "../",
     c.slug,
-    `${c.slug}/`
+    `${c.slug}/`,
+    S.render([
+      S.localBusinessNode(c),
+      S.reviewNode(c, REVIEWED_ISO),
+      S.breadcrumbNode([
+        { name: "Guide", path: "" },
+        { name: "The shortlist", path: "#list" },
+        { name: plain(c.name) },
+      ]),
+      S.webPageNode(`${c.slug}/`, `${shortName(c)} Review`, plain(c.summary).slice(0, 200), REVIEWED_ISO),
+    ])
   )}
 <main id="main">
 ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: c.name }])}
@@ -368,7 +383,12 @@ const alternativesPage = (c) => {
     `Five alternatives to ${plain(c.name)} in Bergen and Passaic counties, with what each does differently and who it suits.`,
     "../",
     "",
-    `${c.slug}-alternatives/`
+    `${c.slug}-alternatives/`,
+    S.render([
+      S.collectionNode(`${c.slug}-alternatives/`, `Alternatives to ${shortName(c)}`,
+        `Five alternatives to ${plain(c.name)} serving Bergen County.`, centers.filter((o) => o.slug !== c.slug)),
+      S.breadcrumbNode([{ name: "Guide", path: "" }, { name: plain(c.name), path: `${c.slug}/` }, { name: "Alternatives" }]),
+    ])
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Alternatives" }])}
@@ -431,7 +451,11 @@ const worthItPage = (c) => {
     `A straight assessment of ${plain(c.name)} in ${c.city}: what it does well, where it is thin, and who should look elsewhere.`,
     "../",
     "",
-    `is-${c.slug}-worth-it/`
+    `is-${c.slug}-worth-it/`,
+    S.render([
+      S.webPageNode(`is-${c.slug}-worth-it/`, `Is ${shortName(c)} worth it?`, plain(c.summary).slice(0, 200), REVIEWED_ISO),
+      S.breadcrumbNode([{ name: "Guide", path: "" }, { name: plain(c.name), path: `${c.slug}/` }, { name: "Is it worth it?" }]),
+    ])
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: "Is it worth it?" }])}
@@ -501,7 +525,12 @@ const versusPage = (a, b) => {
     `${plain(a.name)} and ${plain(b.name)} compared on clinical clarity, medical support, program depth and continuing care, with who each one suits.`,
     "../",
     "",
-    `${slug}/`
+    `${slug}/`,
+    S.render([
+      S.webPageNode(`${slug}/`, `${shortName(a)} vs ${shortName(b)}`,
+        `${plain(a.name)} and ${plain(b.name)} compared on four dimensions.`, REVIEWED_ISO),
+      S.breadcrumbNode([{ name: "Guide", path: "" }, { name: `${shortName(a)} vs ${shortName(b)}` }]),
+    ])
   )}
 <main id="main">
 ${crumbs("../", [{ label: "The shortlist", href: "../#list" }, { label: `${shortName(a)} vs ${shortName(b)}` }])}
@@ -575,7 +604,12 @@ const costPage = (c) => {
     `How ${plain(c.name)} and ${plain(PIVOT.name)} compare on insurance, public coverage and what each publishes about cost.`,
     "../",
     "",
-    `${c.slug}-vs-${PIVOT.slug}-cost/`
+    `${c.slug}-vs-${PIVOT.slug}-cost/`,
+    S.render([
+      S.webPageNode(`${c.slug}-vs-${PIVOT.slug}-cost/`, `${shortName(c)} vs ${shortName(PIVOT)}: cost and insurance`,
+        `How ${plain(c.name)} and ${plain(PIVOT.name)} compare on insurance and coverage.`, REVIEWED_ISO),
+      S.breadcrumbNode([{ name: "Guide", path: "" }, { name: plain(c.name), path: `${c.slug}/` }, { name: "Cost" }]),
+    ])
   )}
 <main id="main">
 ${crumbs("../", [{ label: c.name, href: `../${c.slug}/` }, { label: `Cost vs ${shortName(PIVOT)}` }])}
@@ -640,7 +674,12 @@ const comparePage = () => `${head(
   `Every center in this guide compared on one screen: levels of care, licensing, accreditation, insurance and all four editorial dimensions.`,
   "../",
   "compare",
-  "compare/"
+  "compare/",
+  S.render([
+    S.collectionNode("compare/", "All six Bergen County centers, side by side",
+      "Every center in this guide compared on licensing, levels of care, insurance and four editorial dimensions.", centers),
+    S.breadcrumbNode([{ name: "Guide", path: "" }, { name: "Side by side" }]),
+  ])
 )}
 <main id="main">
 ${crumbs("../", [{ label: "Side by side" }])}
@@ -683,7 +722,12 @@ const methodologyPage = () => `${head(
   `The scoring method behind this guide: four equally weighted dimensions applied to publicly available information, and what the scores deliberately do not measure.`,
   "../",
   "how-we-review",
-  "how-we-review/"
+  "how-we-review/",
+  S.render([
+    S.webPageNode("how-we-review/", "How we review Bergen County treatment centers",
+      "Four equally weighted dimensions applied to publicly available information.", REVIEWED_ISO),
+    S.breadcrumbNode([{ name: "Guide", path: "" }, { name: "How we review" }]),
+  ])
 )}
 <main id="main">
 ${crumbs("../", [{ label: "How we review" }])}
@@ -741,7 +785,11 @@ CROSS.forEach(([x, y]) => {
 
 /* ------------------------------------------------ spine: policy pages */
 
-const policyPage = (title, desc, slug, body) => `${head(title, desc, "../", "", `${slug}/`)}
+const policyPage = (title, desc, slug, body) => `${head(title, desc, "../", "", `${slug}/`,
+  S.render([
+    S.webPageNode(`${slug}/`, title, desc, REVIEWED_ISO),
+    S.breadcrumbNode([{ name: "Guide", path: "" }, { name: title }]),
+  ]))}
 <main id="main">
 ${crumbs("../", [{ label: title }])}
 
@@ -865,6 +913,12 @@ if (a === -1 || b === -1) {
   process.exit(1);
 }
 index = index.slice(0, a + START.length) + "\n" + centers.map(card).join("\n") + "\n      " + index.slice(b);
+index = inject(index, "jsonld", S.render([
+  S.organizationNode(REVIEWED_ISO),
+  S.collectionNode("", "Bergen County Drug Rehabs",
+    "Six addiction treatment centers serving Bergen County, New Jersey, compared against published evidence.", centers),
+  S.breadcrumbNode([{ name: "Guide", path: "" }]),
+]));
 index = inject(index, "compass:tabs", compassTabs);
 index = inject(index, "compass:panels", compassPanels);
 mkdirSync(DIST, { recursive: true });

@@ -4,7 +4,7 @@
   "description": "Bergen County Recovers - comparison guide to addiction treatment centers serving Bergen County, New Jersey.",
   "main": "script.js",
   "scripts": {
-    "build": "node score.mjs && node build.mjs",
+    "build": "node score.mjs && node build.mjs && node surfaces.mjs",
     "gates": "python \"$BN/brand-north-aeo-stack/assets/run_stack_gates.py\" --root dist --html-dir dist --json",
     "audit:links": "node scripts/audit-internal-links.mjs",
     "audit:metadata": "node scripts/audit-article-metadata.mjs",
