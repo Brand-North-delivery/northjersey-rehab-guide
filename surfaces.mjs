@@ -299,7 +299,7 @@ const shell = (title, desc, canonical, body) => `<!doctype html>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="bar">
   <a class="logo" href="../"><span class="mark">BC</span> Recovers<span class="thin">Bergen County, NJ</span></a>
-  <nav class="nav"><a href="../#list">Compare</a><a href="../compare/">All six side by side</a><a href="../how-we-review/">How we review</a></nav>
+  <nav class="nav"><a href="../#list">Compare centers</a><a href="../bergen-county-evidence/">Bergen County data</a><a href="../#faq">Care compass</a><a href="../how-we-review/">How we review</a></nav>
 </div></header>
 <main id="main">
 <nav class="crumbs"><a href="../">Guide</a> <span>/</span> <b>${title}</b></nav>

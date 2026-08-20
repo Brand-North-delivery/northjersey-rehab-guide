@@ -136,10 +136,10 @@ ${jsonLd}
   <div class="bar">
     <a class="logo" href="${up}"><span class="mark">BC</span> Recovers<span class="thin">Bergen County, NJ</span></a>
     <nav class="nav">
-      <a href="${up}#list">Compare</a>
-      <a href="${up}compare/">All six side by side</a>
+      <a href="${up}#list">Compare centers</a>
+      <a href="${up}bergen-county-evidence/">Bergen County data</a>
+      <a href="${up}#faq">Care compass</a>
       <a href="${up}how-we-review/">How we review</a>
-      <a href="${up}#faq">Plain answers</a>
     </nav>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
