@@ -16,6 +16,7 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, statSync, existsSy
 import { execSync } from "node:child_process";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildLinkset, validateLinkset } from "./linkset.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..").replace(/\.\.$/, "");
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -239,6 +240,7 @@ ${ranked.map((c) => `- [${nm(c)}](${ORIGIN}/${c.slug}/): ${c.city}, ${c.county}.
 - [EntityMap](${ORIGIN}/entitymap.json): the machine-readable entity graph for this guide.
 - [EntityMap, readable](${ORIGIN}/entitymap.html): the same graph as a web page.
 - [Sitemap](${ORIGIN}/sitemap.xml): every published URL.
+- [Linkset](${ORIGIN}/linkset.json): RFC 9264 typed relationships — canonical citation targets, authorship, and the sources each page draws from.
 
 ## Optional
 
@@ -280,6 +282,21 @@ writeFileSync(join(DIST, "robots.txt"), robots);
 writeFileSync(join(DIST, "llms.txt"), llms);
 writeFileSync(join(DIST, "entitymap.json"), JSON.stringify(entitymap, null, 2));
 
+/* ------------------------------------------------- RFC 9264 linkset */
+const articlesDir = join(HERE, "data", "articles");
+const articleList = existsSync(articlesDir)
+  ? readdirSync(articlesDir).filter((f) => f.endsWith(".json") && !f.startsWith("_"))
+      .map((f) => JSON.parse(readFileSync(join(articlesDir, f), "utf8")))
+  : [];
+const linkset = buildLinkset({ pages, centers: ranked, articles: articleList, reviewed: REVIEWED_ISO });
+const lsErrors = validateLinkset(linkset);
+if (lsErrors.length) {
+  console.error("linkset failed validation:");
+  for (const e of lsErrors) console.error(`  ${e}`);
+  process.exit(1);
+}
+writeFileSync(join(DIST, "linkset.json"), JSON.stringify(linkset, null, 2));
+
 /* ------------------------------- HTML companions for the two machine files */
 const shell = (title, desc, canonical, body) => `<!doctype html>
 <html lang="en">
@@ -289,6 +306,7 @@ const shell = (title, desc, canonical, body) => `<!doctype html>
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${ORIGIN}/${canonical}">
+<link rel="linkset" type="application/linkset+json" href="${ORIGIN}/linkset.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
@@ -344,4 +362,4 @@ console.log(`  + /sitemap/ and /entitymap/ HTML companions`);
 
 export { sitemapHtmlBody, entitymap, pages };
 
-console.log(`surfaces — sitemap.xml (${pages.length + 1} urls), robots.txt (${AI_AGENTS.length + 1} groups), llms.txt (${(llms.length / 1024).toFixed(1)} KB), entitymap.json (${entitymap.entities.length} entities, ${entitymap.chunks.length} chunks)`);
+console.log(`surfaces — linkset.json (${linkset.linkset.length} contexts), sitemap.xml (${pages.length + 1} urls), robots.txt (${AI_AGENTS.length + 1} groups), llms.txt (${(llms.length / 1024).toFixed(1)} KB), entitymap.json (${entitymap.entities.length} entities, ${entitymap.chunks.length} chunks)`);

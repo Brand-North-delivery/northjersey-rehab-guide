@@ -123,6 +123,7 @@ const head = (title, desc, up, slug = "", canonicalPath = "", jsonLd = "") => `<
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${SITE}${canonicalPath}">
+<link rel="linkset" type="application/linkset+json" href="${SITE}linkset.json">
 ${ogTags(slug, title, desc)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
